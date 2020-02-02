@@ -21,6 +21,7 @@ function LoginForm() {
           <input
             type="text"
             name="username"
+            placeholder="User Name"
             onChange={event => handleChange(event)}
           />
         </label>
@@ -29,10 +30,11 @@ function LoginForm() {
           <input
             type="text"
             name="password"
+            placeholder="Password"
             onChange={event => handleChange(event)}
           />
         </label>
-        <button>Submit!</button>
+        <button>Login!</button>
       </form>
     </div>
   );
