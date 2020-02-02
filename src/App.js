@@ -1,12 +1,16 @@
 import React from 'react';
-import Login from './components/LoginForm'
+import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
+
+import Login from './components/Login'
 import './css/App.css';
 
 function App() {
   return (
-    <div className="App">
-      <Login />
-    </div>
+    <Router>
+      <div className="App">
+        <Login />
+      </div>
+    </Router>
   );
 }
 
