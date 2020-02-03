@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 
-import SignUpForm from './components/RVSignUp'
+import RVSignUp from './components/RVSignUp'
 import RVLogin from './components/RVLogin'
 import './css/App.css';
 import LandOwnerSignUp from './components/LandOwnerSignUp'
@@ -12,7 +12,7 @@ function App() {
     <Router>
       <div className="App">
         <RVLogin />
-        <SignUpForm />
+        <RVSignUp />
         <LandOwnerLogin />
         <LandOwnerSignUp />
       </div>
