@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+ import React, { useState } from 'react';
+ import Button from '@material-ui/core/Button';
 
-const RVLogin = () => {
-  const [login, setLogin] = useState({ 
+ const RVSignUp = () => {
+   const [signup, setSignUp] = useState ({
     username: "", 
     password: "" 
-  });
+   });
 
-  const handleChange = e => {
-    setLogin({ 
-      ...login, 
+   const handleChange = e => {
+    setSignUp({ 
+      ...signup, 
       [e.target.name]: e.target.value 
     });
   };
@@ -17,10 +18,9 @@ const RVLogin = () => {
     e.preventDefault();
      
   };
- 
   return (
     <form onSubmit={submitForm}>
-      <h2>RV Owner Login</h2>
+      <h2>RV Owner Signup</h2>
       <label htmlFor='name'>Name</label>
         <input 
           id='name'
@@ -28,7 +28,7 @@ const RVLogin = () => {
           placeholder='UserName'
           onChange = {handleChange}
           name='name'
-          value={login.name}
+          value={signup.name}
         /> 
       <label htmlFor='email'>Email</label>
         <input 
@@ -37,11 +37,11 @@ const RVLogin = () => {
           placeholder='Password'
           onChange = {handleChange}
           name='email'
-          value={login.email}
+          value={signup.email}
         />
-      <button>Login</button>
+      <Button variant="contained" color="secondary">Signup</Button>
     </form>
   )
-}
+ }
 
-export default RVLogin;
+ export default RVSignUp;

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import Button from '@material-ui/core/Button';
 
-const LandOwnerLogin = () => {
+const RVLogin = () => {
   const [login, setLogin] = useState({ 
     username: "", 
     password: "" 
@@ -20,7 +21,7 @@ const LandOwnerLogin = () => {
  
   return (
     <form onSubmit={submitForm}>
-      <h2>Land Owner Login</h2>
+      <h2>RV Owner Login</h2>
       <label htmlFor='name'>Name</label>
         <input 
           id='name'
@@ -39,9 +40,9 @@ const LandOwnerLogin = () => {
           name='email'
           value={login.email}
         />
-      <button>Login</button>
+      <Button variant="contained">Login</Button>
     </form>
   )
 }
 
-export default LandOwnerLogin;
+export default RVLogin;
