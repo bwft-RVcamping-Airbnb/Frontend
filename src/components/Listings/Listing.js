@@ -5,10 +5,10 @@ import Axios from 'axios';
 
 const Listing = (props) => {
   const [listing, setListing] = useState();
- 
+  const { id } = useParams;
 
   useEffect(() => {
-    const id = props.match.params.id;
+    const id = { id };
 
     axios
       .get()
@@ -20,7 +20,7 @@ const Listing = (props) => {
         console.log(error); 
       });
 
-  },[])
+  },[id]);
 
 return (
   <div>
