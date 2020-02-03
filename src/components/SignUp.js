@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+ import React, { useState } from 'react';
 
-const Login = () => {
-  const [login, setLogin] = useState({ 
-    username: "", 
-    password: "" 
-  });
+ const SignUpForm = () => {
+   const [signup, setSignUp] = useState ({
 
-  const handleChange = e => {
-    setLogin({ 
-      ...login, 
+   });
+
+   const handleChange = e => {
+    setSignUp({ 
+      ...signup, 
       [e.target.name]: e.target.value 
     });
   };
@@ -17,10 +16,9 @@ const Login = () => {
     e.preventDefault();
      
   };
- 
   return (
     <form onSubmit={submitForm}>
-      <h2>Login</h2>
+      <h2>Signup</h2>
       <label htmlFor='name'>Name</label>
         <input 
           id='name'
@@ -28,7 +26,7 @@ const Login = () => {
           placeholder='UserName'
           onChange = {handleChange}
           name='name'
-          value={login.name}
+          value={signup.name}
         /> 
       <label htmlFor='email'>Email</label>
         <input 
@@ -37,11 +35,11 @@ const Login = () => {
           placeholder='Password'
           onChange = {handleChange}
           name='email'
-          value={login.email}
+          value={signup.email}
         />
-      <button>Login</button>
+      <button>Signup</button>
     </form>
   )
-}
+ }
 
-export default Login;
+ export default SignUpForm;
