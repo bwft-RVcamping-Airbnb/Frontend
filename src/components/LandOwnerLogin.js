@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Login = () => {
+const LandOwnerLogin = () => {
   const [login, setLogin] = useState({ 
     username: "", 
     password: "" 
@@ -20,7 +20,7 @@ const Login = () => {
  
   return (
     <form onSubmit={submitForm}>
-      <h2>Login</h2>
+      <h2>Land Owner Login</h2>
       <label htmlFor='name'>Name</label>
         <input 
           id='name'
@@ -44,4 +44,4 @@ const Login = () => {
   )
 }
 
-export default Login;
+export default LandOwnerLogin;

@@ -1,8 +1,9 @@
  import React, { useState } from 'react';
 
- const SignUpForm = () => {
+ const RVSignUp = () => {
    const [signup, setSignUp] = useState ({
-
+    username: "", 
+    password: "" 
    });
 
    const handleChange = e => {
@@ -18,7 +19,7 @@
   };
   return (
     <form onSubmit={submitForm}>
-      <h2>Signup</h2>
+      <h2>RV Owner Signup</h2>
       <label htmlFor='name'>Name</label>
         <input 
           id='name'
@@ -42,4 +43,4 @@
   )
  }
 
- export default SignUpForm;
+ export default RVSignUp;
