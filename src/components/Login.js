@@ -20,6 +20,7 @@ const Login = () => {
  
   return (
     <form onSubmit={submitForm}>
+      <h2>Login</h2>
       <label htmlFor='name'>Name</label>
         <input 
           id='name'
