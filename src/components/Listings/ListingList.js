@@ -24,3 +24,4 @@ const ListingList = props => {
     </div>
   )
 }
+export default ListingList; 
