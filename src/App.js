@@ -12,14 +12,12 @@ import LandOwnerLogin from './components/LogIn/LandOwnerLogin'
 function App() {
   return (
     <ThemeProvider>
-      <Router>
-        <div className="App">
-          <RVLogin />
-          <RVSignUp />
-          <LandOwnerLogin />
-          <LandOwnerSignUp />
-        </div>
-      </Router>
+       <div className="App">
+         <RVLogin />
+         <RVSignUp />
+         <LandOwnerLogin />
+         <LandOwnerSignUp />
+       </div>
     </ThemeProvider>
   );
 }
