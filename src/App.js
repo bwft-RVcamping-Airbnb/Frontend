@@ -3,11 +3,10 @@ import { Route, Switch} from 'react-router-dom';
 
 import { ThemeProvider } from '@material-ui/core/styles';
 
-import RVSignUp from './components/SignUp/RVSignUp'
+import RegisterRVUser from './components/Auth/RegisterRVUser';
 import Login from './components/Auth/Login'
+
 import './css/App.css';
-import LandOwnerSignUp from './components/SignUp/LandOwnerSignUp'
-import LandOwnerLogin from './components/LogIn/LandOwnerLogin'
 
 function App() {
   return (
@@ -15,9 +14,7 @@ function App() {
         <>
           <Switch>
             <Route path='/login' component={Login} />
-            <Route path='/rv-owner/sign-up' component={RVSignUp} />
-            <Route path='/land-owner/login' component={LandOwnerLogin} />
-            <Route path='/land-owner/sign-up' component={LandOwnerSignUp} />
+            <Route path='/rv/register' component={RegisterRVUser} />
           </Switch>
         </>
       </div>
