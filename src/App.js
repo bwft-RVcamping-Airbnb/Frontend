@@ -1,5 +1,6 @@
 import React from 'react';
-import { Route, Switch} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
+import NavBar from './components/Navigation/Navbar'
 
 import { ThemeProvider } from '@material-ui/core/styles';
 
@@ -14,7 +15,8 @@ import './css/App.css';
 function App(){
   return (
       <div className="App">
-        <>
+      <NavBar />
+          <>
           <Switch>
             <PrivateRoute exact path='/dashboard' component={Dashboard} />
             <Route path='/login' component={Login} />
