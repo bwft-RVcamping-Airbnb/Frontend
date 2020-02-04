@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from '@material-ui/core/Button';
 
 const LandOwnerSignUp = () => {
   const [signup, setSignUp] = useState ({
@@ -38,7 +39,7 @@ const LandOwnerSignUp = () => {
          name='email'
          value={signup.email}
        />
-     <button>Signup</button>
+     <Button variant="contained" color="secondary">Signup</Button>
    </form>
  )
 }

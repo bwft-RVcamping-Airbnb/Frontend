@@ -1,17 +1,18 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 
-import RVSignUp from './components/RVSignUp'
-import RVLogin from './components/RVLogin'
+import { ThemeProvider } from '@material-ui/core/styles';
+
+import RVSignUp from './components/SignUp/RVSignUp'
+import RVLogin from './components/LogIn/RVLogin'
 import './css/App.css';
-import LandOwnerSignUp from './components/LandOwnerSignUp'
-import LandOwnerLogin from './components/LandOwnerLogin'
+import LandOwnerSignUp from './components/SignUp/LandOwnerSignUp'
+import LandOwnerLogin from './components/LogIn/LandOwnerLogin'
 
 function App() {
   return (
+    <ThemeProvider>
       <div className="App">
-        <LandOwnerLogin />
-        <LandOwnerSignUp />
         <>
           <Switch>
             <Route path='/rv-owner/login' component={RVLogin} />
@@ -21,6 +22,7 @@ function App() {
           </Switch>
         </>
       </div>
+    </ThemeProvider>
   );
 }
 
