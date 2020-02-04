@@ -4,6 +4,7 @@ import { Route, Switch} from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core/styles';
 
 import RegisterRVUser from './components/Auth/RegisterRVUser';
+import RegisterLandUser from './components/Auth/RegisterLandUser';
 import Login from './components/Auth/Login'
 
 import './css/App.css';
@@ -15,6 +16,7 @@ function App() {
           <Switch>
             <Route path='/login' component={Login} />
             <Route path='/rv/register' component={RegisterRVUser} />
+            <Route path='/land/register' component={RegisterLandUser} />
             <Route path='/' component={Login} />
             
           </Switch>

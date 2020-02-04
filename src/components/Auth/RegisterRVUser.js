@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
    const [signup, setSignUp] = useState ({
     username: '', 
     password: '',
-    is_land_owner: false
+    is_land_owner: props.isLandOwner
    });
   
  
@@ -70,7 +70,8 @@ import { connect } from 'react-redux';
  }
 
  const mapStateToProps = state => ({
-    isLoading: state.newRVUser.isLoading
+    isLoading: state.newRVUser.isLoading,
+    isLandOwner: state.newRVUser.is_land_owner
  });
 
  export default connect(mapStateToProps, {registerNewRVUser})(RegisterRVUser);
