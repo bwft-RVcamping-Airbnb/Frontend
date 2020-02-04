@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 
 const ListingForm = () => {
   const [listing, setListing] = useState ({
-   username: "", 
-   password: "" 
+   location: "", 
+   description: "",
+   price: "",
+   photo 
   });
 
   const handleChange = e => {
@@ -20,23 +22,32 @@ const ListingForm = () => {
  return (
    <form onSubmit={submitForm}>
      <h2>Land Listing</h2>
-     <label htmlFor='address'>Name</label>
+     <label htmlFor='location'>Location</label>
        <input 
-         id='name'
+         id='location'
          type='text'
          placeholder='UserName'
          onChange = {handleChange}
-         name='name'
+         name='location'
          value={listing.address}
        /> 
-     <label htmlFor='email'>Email</label>
+     <label htmlFor='description'>Description</label>
        <input 
-         id='password'
-         type='password'
-         placeholder='Password'
+         id='description'
+         type='text'
+         placeholder='Description'
          onChange = {handleChange}
-         name='email'
-         value={listing.email}
+         name='description'
+         value={listing.description}
+       />
+       <label htmlFor='currency-field'>Price</label>
+       <input 
+         id='price'
+         type='number'
+         placeholder='Description'
+         onChange = {handleChange}
+         name='description'
+         value={listing.description}
        />
      <button>Signup</button>
    </form>

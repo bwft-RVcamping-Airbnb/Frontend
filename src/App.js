@@ -15,7 +15,7 @@ function App() {
     <ThemeProvider>
       <div className="App">
       <NavBar />
-        <>
+          <>
           <Switch>
             <Route path='/rv-owner/login' component={RVLogin} />
             <Route path='/rv-owner/sign-up' component={RVSignUp} />
