@@ -1,6 +1,7 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
-import NavBar from './components/Navigation/Navbar'
+import NavBar from './components/Navigation/Navbar';
+import AddListing from './components/Listings/AddListing';
 
 import { ThemeProvider } from '@material-ui/core/styles';
 
@@ -14,9 +15,10 @@ import './css/App.css';
 
 function App(){
   return (
-      <div className="App">
+     <div className="App">
+      <AddListing />
       <NavBar />
-          <>
+        <>
           <Switch>
             <PrivateRoute exact path='/dashboard' component={Dashboard} />
             <Route path='/login' component={Login} />
