@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import Loader from 'react-loader-spinner';
 import { connect } from 'react-redux';
 
-import {getUserLogIn} from '../../actions/getLogIn';
+import {getRVUserLogIn} from '../../actions/getLogIn';
 
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
@@ -22,7 +22,7 @@ const RVLogin = props => {
 
   const handleSubmit= e => {
    
-    props.getUserLogIn(
+    props.getRVUserLogIn(
       {
         username: login.username,
         password: login.password
@@ -35,7 +35,6 @@ const RVLogin = props => {
   return (
     <div className="rv-owner-login-container">
       
-
       {props.isLoading &&
         <Loader type="Rings" color="red" />
       }
@@ -73,7 +72,7 @@ const RVLogin = props => {
 }
 
 const mapStatetToProps = state => ({
-  isLoading: state.rvLogin.isLoading
+  isLoading: state.rvUser.isLoading
 });
 
-export default connect(mapStatetToProps, {getUserLogIn})(RVLogin);
+export default connect(mapStatetToProps, {getRVUserLogIn})(RVLogin);
