@@ -2,7 +2,7 @@ import {  POST_NEW_RV_USER, POST_NEW_RV_USER_SUCCESS, POST_NEW_RV_USER_FAILURE }
 
 const initialState = {
     isLoading: false,
-    is_land_owner: '',
+    is_land_owner: false,
     errors: '',
     success_msg: ''
 }
