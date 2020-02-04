@@ -16,7 +16,7 @@ const RVLogin = () => {
 
   const submitForm = e => {
     e.preventDefault();
-     
+    
   };
  
   return (
@@ -27,7 +27,7 @@ const RVLogin = () => {
           id='name'
           type='text'
           placeholder='UserName'
-          onChange = {handleChange}
+          onChange={handleChange}
           name='name'
           value={login.name}
         /> 

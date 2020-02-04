@@ -28,7 +28,7 @@ const LandOwnerLogin = () => {
           type='text'
           placeholder='UserName'
           onChange = {handleChange}
-          name='name'
+          username='name'
           value={login.name}
         /> 
       <label htmlFor='email'>Email</label>
