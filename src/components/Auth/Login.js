@@ -21,16 +21,17 @@ const Login = props => {
   };
 
   const handleSubmit= e => {
-   
+    const id = props.user.id;
     props.getUserLogIn(
       {
         username: login.username,
         password: login.password
       }
     );
+    
+    props.history.push('/dashboard');
 
   };
-
   console.log(props);
   return (
     <div className="rv-owner-login-container">
@@ -71,7 +72,8 @@ const Login = props => {
 }
 
 const mapStatetToProps = state => ({
-  isLoading: state.user.isLoading
+  isLoading: state.user.isLoading,
+  user: state.user
 });
 
 export default connect(mapStatetToProps, {getUserLogIn})(Login);
