@@ -1,21 +1,21 @@
 import React, { useState, useEffect} from 'react';
-import Axios from 'axios';
+import axios from 'axios';
 
-const ListingList = props => {
+import results from '../../api/data';
+
+const ListingsList = props => {
+
   const [listings, setListings] = useState([])
 
   useEffect(() => {
-    const getListings = () => {
-      axios
-        .get()
+      axios.get(results)
         .then(response => {
-          setListings(response.data)
-        });
+          console.log(response);
+          // setListings(response.data)
+        })
         .catch(error => {
           console.log(error)
         });
-    }
-    getListings();
   }, []);
 
   return (
@@ -24,4 +24,5 @@ const ListingList = props => {
     </div>
   )
 }
-export default ListingList; 
+
+export default ListingsList;

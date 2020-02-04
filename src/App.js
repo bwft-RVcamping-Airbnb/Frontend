@@ -1,30 +1,31 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import NavBar from './components/Navigation/Navbar'
 
 import { ThemeProvider } from '@material-ui/core/styles';
 
-import RVSignUp from './components/SignUp/RVSignUp'
-import RVLogin from './components/LogIn/RVLogin'
-import './css/App.css';
-import LandOwnerSignUp from './components/SignUp/LandOwnerSignUp'
-import LandOwnerLogin from './components/LogIn/LandOwnerLogin'
+import RegisterRVUser from './components/Auth/RegisterRVUser';
+import RegisterLandUser from './components/Auth/RegisterLandUser';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Dashboard from './components/Dashboard/Dashboard';
+import Login from './components/Auth/Login'
 
-function App() {
+import './css/App.css';
+
+function App(){
   return (
-    <ThemeProvider>
       <div className="App">
       <NavBar />
           <>
           <Switch>
-            <Route path='/rv-owner/login' component={RVLogin} />
-            <Route path='/rv-owner/sign-up' component={RVSignUp} />
-            <Route path='/land-owner/login' component={LandOwnerLogin} />
-            <Route path='/land-owner/sign-up' component={LandOwnerSignUp} />           
+            <PrivateRoute exact path='/dashboard' component={Dashboard} />
+            <Route path='/login' component={Login} />
+            <Route path='/rv/register' component={RegisterRVUser} />
+            <Route path='/land/register' component={RegisterLandUser} />
+            <Route exact path='/' component={Login} />
           </Switch>
         </>
       </div>
-    </ThemeProvider>
   );
 }
 

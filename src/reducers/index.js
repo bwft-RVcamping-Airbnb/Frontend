@@ -1,6 +1,10 @@
 import { combineReducers } from 'redux';
-import { loginReducer } from './loginReducer';
+import { getUserReducer } from './getUserReducer';
+import {newRVUserReducer } from './newRVUserReducer';
+import {newLandUserReducer} from './newLandUserReducer';
 
 export const rootReducer = combineReducers({
-    login:  loginReducer
+    user:  getUserReducer,
+    newRVUser: newRVUserReducer,
+    newLandUser: newLandUserReducer
 });
