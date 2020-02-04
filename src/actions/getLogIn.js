@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-import {RV_LOGIN_FETCHING, RV_LOGIN_SUCCESS, RV_LOGIN_FAILURE} from './index';
+import {LOGIN_FETCHING, LOGIN_SUCCESS, LOGIN_FAILURE} from './index';
 
-export const getRVUserLogIn = credentials => dispatch =>{
+export const getUserLogIn = credentials => dispatch =>{
 
-        dispatch({type: RV_LOGIN_FETCHING});
+        dispatch({type: LOGIN_FETCHING});
 
         axios.get(`https://jsonplaceholder.typicode.com/users`)
         .then(res => {
@@ -12,7 +12,7 @@ export const getRVUserLogIn = credentials => dispatch =>{
             //once endpoint is working
             localStorage.setItem('token', 'dfsdhsdkjfdjkshd');
             dispatch({
-                type: RV_LOGIN_SUCCESS, 
+                type: LOGIN_SUCCESS, 
                 payload: {data: res.data}
             });
 
@@ -20,7 +20,7 @@ export const getRVUserLogIn = credentials => dispatch =>{
         })
         .catch(err => {
             dispatch({
-                type: RV_LOGIN_FAILURE, 
+                type: LOGIN_FAILURE, 
                 payload: {errors: err}
             });
 

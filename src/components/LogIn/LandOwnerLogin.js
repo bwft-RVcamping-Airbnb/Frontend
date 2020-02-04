@@ -1,5 +1,11 @@
 import React, { useState } from "react";
 import Button from '@material-ui/core/Button';
+import Loader from 'react-loader-spinner';
+import { connect } from 'react-redux';
+
+import {getUserLogIn} from '../../actions/getLogIn';
+
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 const LandOwnerLogin = () => {
   const [login, setLogin] = useState({ 

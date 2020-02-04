@@ -4,7 +4,7 @@ import { Route, Switch} from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core/styles';
 
 import RVSignUp from './components/SignUp/RVSignUp'
-import RVLogin from './components/LogIn/RVLogin'
+import Login from './components/Auth/Login'
 import './css/App.css';
 import LandOwnerSignUp from './components/SignUp/LandOwnerSignUp'
 import LandOwnerLogin from './components/LogIn/LandOwnerLogin'
@@ -14,7 +14,7 @@ function App() {
       <div className="App">
         <>
           <Switch>
-            <Route path='/rv-owner/login' component={RVLogin} />
+            <Route path='/login' component={Login} />
             <Route path='/rv-owner/sign-up' component={RVSignUp} />
             <Route path='/land-owner/login' component={LandOwnerLogin} />
             <Route path='/land-owner/sign-up' component={LandOwnerSignUp} />

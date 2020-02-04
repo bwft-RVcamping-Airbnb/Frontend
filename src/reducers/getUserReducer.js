@@ -1,4 +1,4 @@
-import {RV_LOGIN_FETCHING, RV_LOGIN_SUCCESS, RV_LOGIN_FAILURE} from '../actions/index';
+import {LOGIN_FETCHING, LOGIN_SUCCESS, LOGIN_FAILURE} from '../actions/index';
 
 const intialState = {
     isLoading: false,
@@ -9,15 +9,15 @@ const intialState = {
     errors: ''
 }
 
-export const getRVOwnerReducer = (state=intialState, action) => {
+export const getUserReducer = (state=intialState, action) => {
 
         switch(action.type){
-            case RV_LOGIN_FETCHING:
+            case LOGIN_FETCHING:
                 return {
                     ...state,
                     isLoading: !state.isLoading,
                 }
-            case RV_LOGIN_SUCCESS:
+            case LOGIN_SUCCESS:
                 return {
                     ...state,
                     isLoading: !state.isLoading,
@@ -25,7 +25,7 @@ export const getRVOwnerReducer = (state=intialState, action) => {
                     //delete once endpoint is working
                     data: action.payload.data
                 }
-            case RV_LOGIN_FAILURE: 
+            case LOGIN_FAILURE: 
                 return{
                     ...state,
                     errors: action.payload.error
