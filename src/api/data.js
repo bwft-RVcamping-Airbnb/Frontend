@@ -1,5 +1,5 @@
 
-const results = {
+export const results = {
 
     "data": [
         {

@@ -10,7 +10,7 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 const Login = props => {
   const [login, setLogin] = useState({ 
     username: "", 
-    password: "" 
+    password: ""
   });
 
   const handleChange = e => {
@@ -21,18 +21,19 @@ const Login = props => {
   };
 
   const handleSubmit= e => {
-    const id = props.user.id;
-    props.getUserLogIn(
-      {
-        username: login.username,
-        password: login.password
-      }
-    );
+    e.preventDefault();
+
+    const credentials = {
+      username: login.username,
+      password: login.password
+    }
+    console.log('login form: ', credentials);
+    props.getUserLogIn(credentials);
     
     props.history.push('/dashboard');
 
   };
-  console.log(props);
+  
   return (
     <div className="rv-owner-login-container">
       
@@ -52,6 +53,7 @@ const Login = props => {
               onChange = {handleChange}
               name='username'
               value={login.username}
+              required
             /> 
 
           <label htmlFor='password'>Password: </label>
@@ -62,6 +64,7 @@ const Login = props => {
               onChange = {handleChange}
               name='password'
               value={login.password}
+              required
             />
             <Button color="primary" component="button" variant="contained" size="small" type="submit">Login</Button>
          </form>
