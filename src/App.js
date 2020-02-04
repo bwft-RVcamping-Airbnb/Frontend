@@ -11,7 +11,7 @@ import LandOwnerLogin from './components/LogIn/LandOwnerLogin'
 
 function App() {
   return (
-    <ThemeProvider>
+    
       <div className="App">
         <>
           <Switch>
@@ -22,7 +22,7 @@ function App() {
           </Switch>
         </>
       </div>
-    </ThemeProvider>
+   
   );
 }
 

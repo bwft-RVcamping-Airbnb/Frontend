@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import Button from '@material-ui/core/Button';
+import { connect } from 'react-redux';
 
-const RVLogin = () => {
+import {getLogIn} from '../../actions/rvOwnerLoginActions';
+
+const RVLogin = props => {
   const [login, setLogin] = useState({ 
     username: "", 
     password: "" 
@@ -14,35 +17,41 @@ const RVLogin = () => {
     });
   };
 
-  const submitForm = e => {
+  const handleSubmit= e => {
     e.preventDefault();
-     
+    props.getLogIn();
+    console.log('form submitted');
   };
- 
+
   return (
-    <form onSubmit={submitForm}>
+    <form onSubmit={handleSubmit}>
       <h2>RV Owner Login</h2>
-      <label htmlFor='name'>Name</label>
+      <label htmlFor='username'>Username: </label>
         <input 
-          id='name'
+          id='username'
           type='text'
           placeholder='UserName'
           onChange = {handleChange}
-          name='name'
-          value={login.name}
+          name='username'
+          value={login.username}
         /> 
-      <label htmlFor='email'>Email</label>
+      <label htmlFor='password'>Password: </label>
         <input 
           id='password'
           type='password'
           placeholder='Password'
           onChange = {handleChange}
-          name='email'
-          value={login.email}
+          name='password'
+          value={login.password}
         />
-      <Button variant="contained">Login</Button>
+      {/* <Button variant="contained">Login</Button> */}
+      <button>submit</button>
     </form>
   )
 }
 
-export default RVLogin;
+const mapStatetToProps = state => ({
+  isLoading: state.isLoading
+});
+
+export default connect(mapStatetToProps, {getLogIn})(RVLogin);
