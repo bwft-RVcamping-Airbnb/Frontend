@@ -11,7 +11,7 @@ import Login from './components/Auth/Login'
 
 import './css/App.css';
 
-function App() {
+function App(){
   return (
       <div className="App">
         <>
