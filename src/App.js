@@ -12,12 +12,16 @@ import LandOwnerLogin from './components/LogIn/LandOwnerLogin'
 function App() {
   return (
     <ThemeProvider>
-       <div className="App">
-         <RVLogin />
-         <RVSignUp />
-         <LandOwnerLogin />
-         <LandOwnerSignUp />
-       </div>
+      <div className="App">
+        <>
+          <Switch>
+            <Route path='/rv-owner/login' component={RVLogin} />
+            <Route path='/rv-owner/sign-up' component={RVSignUp} />
+            <Route path='/land-owner/login' component={LandOwnerLogin} />
+            <Route path='/land-owner/sign-up' component={LandOwnerSignUp} />
+          </Switch>
+        </>
+      </div>
     </ThemeProvider>
   );
 }
