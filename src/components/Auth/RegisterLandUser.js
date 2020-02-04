@@ -37,7 +37,7 @@ import { connect } from 'react-redux';
 
       {!props.isLoading && 
         <>
-        <h2>Create RV Owner Account</h2>
+        <h2>Create Land Owner Account</h2>
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor='username'>Username: </label>
