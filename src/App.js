@@ -3,7 +3,6 @@ import { Route, Switch} from 'react-router-dom';
 
 import { ThemeProvider } from '@material-ui/core/styles';
 
-
 import RegisterRVUser from './components/Auth/RegisterRVUser';
 import RegisterLandUser from './components/Auth/RegisterLandUser';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
@@ -22,7 +21,6 @@ function App() {
             <Route path='/rv/register' component={RegisterRVUser} />
             <Route path='/land/register' component={RegisterLandUser} />
             <Route path='/' component={Login} />
-            
           </Switch>
         </>
       </div>
