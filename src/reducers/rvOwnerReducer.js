@@ -6,7 +6,7 @@ const intialState = {
     errors: ''
 }
 
-export const rvOwnerReducer = (state=intialState, action) => {
+export const getRVOwnerReducer = (state=intialState, action) => {
 
         switch(action.type){
             case LOGIN_FETCHING:
@@ -17,7 +17,8 @@ export const rvOwnerReducer = (state=intialState, action) => {
             case LOGIN_SUCCESS:
                 return {
                    ...state,
-                   data: 'working'
+                   isLoading: !state.isLoading,
+                   data: action.payload.data
                 }
             case LOGIN_FAILURE: 
                 return{

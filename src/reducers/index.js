@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import { rvOwnerReducer } from './rvOwnerReducer';
+import { getRVOwnerReducer } from './rvOwnerReducer';
 
 export const rootReducer = combineReducers({
-    rvOwnerLogin:  rvOwnerReducer
+    rvLogin:  getRVOwnerReducer
 });
