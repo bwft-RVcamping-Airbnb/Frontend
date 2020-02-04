@@ -37,7 +37,6 @@ function AddListing() {
       {errors.description && <p>This is required</p>}
 
       <input type='submit' />
-
     </form>
   )
 }

@@ -1,46 +1,28 @@
-import React, { useState } from "react";
-import Button from '@material-ui/core/Button';
+import React from 'react'
+import { useForm } from 'react-hook-form'
 
-const LandOwnerLogin = () => {
-  const [login, setLogin] = useState({ 
-    username: "", 
-    password: "" 
-  });
-
-  const handleChange = e => {
-    setLogin({ 
-      ...login, 
-      [e.target.name]: e.target.value 
-    });
-  };
-
-  const submitForm = e => {
-    e.preventDefault();
-     
-  };
- 
+function LandOwnerLogin() {
+  const { register, handleSubmit, errors} = useForm()
+  const onSubmit = (data) => {
+    console.log(data);
+  }
+  
   return (
-    <form onSubmit={submitForm}>
+    <form className="App" onSubmit={handleSubmit(onSubmit)}>
       <h2>Land Owner Login</h2>
-      <label htmlFor='name'>Name</label>
-        <input 
-          id='name'
-          type='text'
-          placeholder='UserName'
-          onChange = {handleChange}
-          username='name'
-          value={login.name}
-        /> 
-      <label htmlFor='email'>Email</label>
-        <input 
-          id='password'
-          type='password'
-          placeholder='Password'
-          onChange = {handleChange}
-          name='email'
-          value={login.email}
-        />
-      <Button variant="contained">Login</Button>
+      <label>Name</label>
+      <input name='name' ref={register({ required: true})} />
+
+      {errors.name && errors.name.type === 'required' && (<p>This is required</p>
+      )}
+
+      <label>email</label>
+      <input name='email' ref={register({ required: true})} />
+
+      {errors.email && errors.email.type === 'required' && (<p>This is required</p>
+      )}
+
+      <input type='submit' />
     </form>
   )
 }
