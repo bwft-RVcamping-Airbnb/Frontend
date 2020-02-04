@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
-const ListingForm = () => {
+const AddListing= () => {
   const [listing, setListing] = useState ({
+   title: "",
    location: "", 
    description: "",
-   price: "",
-   photo 
+   price: ""
   });
 
   const handleChange = e => {
@@ -22,6 +22,15 @@ const ListingForm = () => {
  return (
    <form onSubmit={submitForm}>
      <h2>Land Listing</h2>
+     <label htmlFor='title'>Title</label>
+       <input 
+         id='title'
+         type='text'
+         placeholder='Title'
+         onChange = {handleChange}
+         name='title'
+         value={listing.title}
+       /> 
      <label htmlFor='location'>Location</label>
        <input 
          id='location'
@@ -44,14 +53,15 @@ const ListingForm = () => {
        <input 
          id='price'
          type='number'
-         placeholder='Description'
+         placeholder='Price'
          onChange = {handleChange}
-         name='description'
-         value={listing.description}
+         name='price'
+         value={listing.price}
        />
-     <button>Signup</button>
+          
+     <button>List</button>
    </form>
  )
 }
 
-export default ListingForm;
+export default AddListing;
