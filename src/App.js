@@ -19,10 +19,10 @@ const App = () => {
   return (
     <ThemeProvider>
       <div className="App">
-      {/* <NavBar /> */}
+      <NavBar /> 
           <>
           {!localStorage.getItem('token') &&  
-              <Route path='/' component={Login} />   
+              <Route exact path='/' component={Login} />   
           }
 
           <Route exact path='/login' component={Login} />
@@ -32,7 +32,7 @@ const App = () => {
 
           <Switch>
             <PrivateRoute path='/user/:id/add' component={AddListing} />
-            <PrivateRoute path = '/' component={Dashboard} />
+            <PrivateRoute exact path = '/' component={Dashboard} />
           </Switch>
         </>
       </div>

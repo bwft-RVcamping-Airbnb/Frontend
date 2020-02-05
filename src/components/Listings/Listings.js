@@ -2,7 +2,7 @@ import React, { useState, useEffect} from 'react';
 import ListingCard from './ListingCard';
 import {connect} from 'react-redux';
 import Loader from 'react-loader-spinner';
-
+import { Container, Row } from "reactstrap";
 import {getLoggedOut} from '../../actions/logout';
 import {fetchListings} from '../../actions/fetchListings';
 
@@ -24,13 +24,19 @@ const Listings = props => {
             }
           
             {!props.isLoading &&
-            
-                props.listingData.map(listing => (
-                <div key={listing.id}>
-                     <ListingCard listing={listing}/>
-                </div>
-                
-                ))
+        
+                <Container>
+                    <Row>
+                    {
+                        props.listingData.map(listing => (
+                        <div key={listing.id}>
+                            <ListingCard listing={listing}/>
+                        </div>
+                        
+                        ))
+                    }
+                    </Row>
+                </Container>
             }
         </div>
     )
