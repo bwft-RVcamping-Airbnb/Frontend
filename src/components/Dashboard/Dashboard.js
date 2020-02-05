@@ -12,8 +12,7 @@ const Dashboard = (props) => {
             <Link to={`/user/${props.user.id}/add`}>
                 Add Listing
             </Link>
-            <Listings />
-            
+            <Listings />  
         </div>
     );
 }
