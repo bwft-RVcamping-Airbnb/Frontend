@@ -11,7 +11,7 @@ const Listings = () => {
                 data.data.map(listing => (
                 <div key={listing.id}>
                      <p >{listing.title}</p>
-                    <img src={listing.img} />
+                    <img src={listing.img} alt='' />
                 </div>
                 
                 ))
