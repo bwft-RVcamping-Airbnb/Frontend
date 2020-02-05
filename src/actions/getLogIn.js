@@ -2,18 +2,26 @@ import axios from 'axios';
 
 import {LOGIN_FETCHING, LOGIN_SUCCESS, LOGIN_FAILURE} from './index';
 
-export const getUserLogIn = credentials => dispatch =>{
+export const getUserLogIn = credentials => {
+    return dispatch => {
 
         dispatch({type: LOGIN_FETCHING});
-
-        axios.get(`https://jsonplaceholder.typicode.com/users`)
+        
+        axios.post('https://rvairbnb.herokuapp.com/api/auth/login', credentials)
         .then(res => {
-            //will get token from end point response (res.token)
-            //once endpoint is working
-            localStorage.setItem('token', 'dfsdhsdkjfdjkshd');
+            localStorage.setItem('token', res.data.token);
+            localStorage.setItem('user', JSON.stringify({
+                username: res.data.username,
+                id: res.data.id,
+                isLandOwner: res.data.is_land_owner
+            }))
             dispatch({
                 type: LOGIN_SUCCESS, 
-                payload: {data: res.data}
+                payload: {
+                    username: res.data.username,
+                    id: res.data.id,
+                    isLandOwner: res.data.is_land_owner
+                }
             });
 
             console.log(res);
@@ -26,5 +34,6 @@ export const getUserLogIn = credentials => dispatch =>{
 
             console.log(err);
         })
+    }
 }
 

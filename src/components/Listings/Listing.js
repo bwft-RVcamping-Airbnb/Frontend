@@ -7,20 +7,7 @@ const Listing = (props) => {
   const [listing, setListing] = useState();
   const { id } = useParams;
 
-  useEffect(() => {
-    const id = { id };
-
-    axios
-      .get()
-      .then(response => {
-        console.log(response.data)
-        setListing(response.data)
-      });
-      .catch(error => {
-        console.log(error); 
-      });
-
-  },[id]);
+ 
 
 return (
   <div>

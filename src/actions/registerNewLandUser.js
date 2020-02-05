@@ -5,7 +5,7 @@ import { POST_NEW_LAND_USER, POST_NEW_LAND_USER_SUCCESS,  POST_NEW_LAND_USER_FAI
 export const registerNewLandUser = user => dispatch => {
     dispatch({type: POST_NEW_LAND_USER})
 
-    axios.post('')
+    axios.post('https://rvairbnb.herokuapp.com/api/auth/register', user)
     .then(res => {
         dispatch({
             type: POST_NEW_LAND_USER_SUCCESS,

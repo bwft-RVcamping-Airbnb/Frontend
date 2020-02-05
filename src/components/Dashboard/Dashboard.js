@@ -1,14 +1,25 @@
 import React from 'react';
+import {connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-import ListingsList from '../Dashboard/Dashboard';
+import Listings from '../Listings/Listings';
 
-const Dashboard = () => {
+const Dashboard = (props) => {
+   console.log(props.user);
     return(
         <div className="dashboard-container">
             <h1>Welcome to the dashboard</h1>
-            {/* <ListingsList /> */}
+            <Link to={`/dashboard/user/${props.user.id}/add`}>
+                Add Listing
+            </Link>
+            <Listings />
+            
         </div>
     );
 }
 
-export default Dashboard;
+const mapStateToProps = state => ({
+    user: state.user
+});
+
+export default connect( mapStateToProps, {})(Dashboard);

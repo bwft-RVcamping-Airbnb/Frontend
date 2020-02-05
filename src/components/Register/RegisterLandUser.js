@@ -1,30 +1,63 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import Loader from 'react-loader-spinner';
+import { connect } from 'react-redux';
 
-function RegisterLandOwner() {
+import {registerNewLandUser} from '../../actions/registerNewLandUser';
+
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+
+const RegisterLandUser = props => {
   const { register, handleSubmit, errors} = useForm()
   const onSubmit = (data) => {
-    console.log(data);
+    const credentials = {
+      username: data.username,
+      password: data.password,
+      is_land_owner: props.is_land_owner
+    }
+    props.registerNewLandUser(credentials);
+    props.history.push('/account/success');
+    console.log(credentials);
   }
-  
+  console.log(props);
   return (
-    <form className="App" onSubmit={handleSubmit(onSubmit)}>
-      <h2>Land Owner Login</h2>
-      <label>User Name</label>
-      <input name='username' ref={register({ required: true})} />
+    <div className="sign-up-form-container">
+      {props.isLoading &&
+        <Loader type="Rings" color="red" />
+      }
+    
+    {!props.isLoading && 
+        <>
+          <h2>Create Land Owner Account</h2>
 
-      {errors.username && errors.username.type === 'required' && (<p>This is required</p>
-      )}
+          <form className="App" onSubmit={handleSubmit(onSubmit)}>
 
-      <label>email</label>
-      <input name='email' ref={register({ required: true})} />
+          <div className="create-account-input-container">
 
-      {errors.email && errors.email.type === 'required' && (<p>This is required</p>
-      )}
+            <label>Username: </label>
+            <input type="text" name='username' ref={register({ required: true})} />
+            {errors.username && errors.username.type === 'required' && (<p>This is required</p>)}
 
-      <input type='submit' />
-    </form>
+          </div>
+
+          <div className="create-account-input-container">
+
+            <label>Password: </label>
+            <input type="password" name='password' ref={register({ required: true})} />
+            {errors.password && errors.password.type === 'required' && (<p>This is required</p>)}
+
+          </div>
+            <input type='submit' />
+          </form>
+        </>
+    } 
+    </div>
   )
 }
 
-export default RegisterLandOwner;
+const mapStateToProps = state => ({
+  isLoading: state.newLandUser.isLoading,
+  is_land_owner: state.newLandUser.is_land_owner
+});
+
+export default connect(mapStateToProps, {registerNewLandUser})(RegisterLandUser);
