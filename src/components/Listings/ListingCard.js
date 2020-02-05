@@ -9,7 +9,11 @@ import {
 const ListingCard = props => {
 
   return (
-    <>
+    <div>
+      <h1>Listing Card</h1>
+      <p>{props.listing.location} </p>
+
+      {/* <>
       <p>{props.listing.title} </p>
       <Grid>
         <Card>
@@ -18,7 +22,9 @@ const ListingCard = props => {
           </CardContent>
         </Card>
       </Grid>
-    </>
+      </> */}
+    </div>
+    
   )
 };
 

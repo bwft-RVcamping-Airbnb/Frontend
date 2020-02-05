@@ -22,7 +22,7 @@ export const getUserLogIn = credentials => {
             });
 
             dispatch(push('/'));
-            
+
             console.log(res);
         })
         .catch(err => {
@@ -30,7 +30,8 @@ export const getUserLogIn = credentials => {
                 type: LOGIN_FAILURE, 
                 payload: {errors: err}
             });
-
+            
+            dispatch(push('/login'));
             console.log(err);
         })
     }
