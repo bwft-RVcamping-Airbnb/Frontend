@@ -24,7 +24,9 @@ import { connect } from 'react-redux';
 
   const handleSubmit= e => {
     e.preventDefault();
-    registerNewRVUser(signup);
+    console.log(signup);
+    props.registerNewRVUser(signup);
+    props.history.push('/account/success');
   };
 
   return (

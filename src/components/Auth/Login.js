@@ -8,32 +8,22 @@ import {getUserLogIn} from '../../actions/getLogIn';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 const Login = props => {
-  const [login, setLogin] = useState({ 
-    username: "", 
-    password: ""
-  });
-
-  const handleChange = e => {
-    setLogin({ 
-      ...login, 
-      [e.target.name]: e.target.value 
-    });
-  };
-
-  const handleSubmit= e => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  
+  const  handleSubmit = e => {
     e.preventDefault();
 
     const credentials = {
-      username: login.username,
-      password: login.password
+      username: username,
+      password: password
     }
-    console.log('login form: ', credentials);
+    console.log(props.user.id);
     props.getUserLogIn(credentials);
-    
-    props.history.push('/dashboard');
 
+    props.history.push(`/dashboard/user/`);
   };
-  
+
   return (
     <div className="rv-owner-login-container">
       
@@ -50,10 +40,10 @@ const Login = props => {
               id='username'
               type='text'
               placeholder=' Enter Username'
-              onChange = {handleChange}
+              onChange = {e => setUsername(e.target.value)}
               name='username'
-              value={login.username}
-              required
+              value={username}
+            
             /> 
 
           <label htmlFor='password'>Password: </label>
@@ -61,10 +51,10 @@ const Login = props => {
               id='password'
               type='password'
               placeholder=' Enter Password'
-              onChange = {handleChange}
+              onChange = {e => setPassword(e.target.value)}
               name='password'
-              value={login.password}
-              required
+              value={password}
+          
             />
             <Button color="primary" component="button" variant="contained" size="small" type="submit">Login</Button>
          </form>

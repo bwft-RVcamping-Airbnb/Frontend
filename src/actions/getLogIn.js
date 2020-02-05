@@ -2,7 +2,8 @@ import axios from 'axios';
 
 import {LOGIN_FETCHING, LOGIN_SUCCESS, LOGIN_FAILURE} from './index';
 
-export const getUserLogIn = credentials => dispatch =>{
+export const getUserLogIn = credentials => {
+    return dispatch => {
 
         dispatch({type: LOGIN_FETCHING});
         
@@ -28,5 +29,6 @@ export const getUserLogIn = credentials => dispatch =>{
 
             console.log(err);
         })
+    }
 }
 
