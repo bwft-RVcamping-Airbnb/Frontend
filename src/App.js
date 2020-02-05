@@ -21,7 +21,7 @@ const App = props => {
   return (
     <ThemeProvider>
       <div className="App">
-      {/* <NavBar /> */}
+      <NavBar /> 
           <>
           {!localStorage.getItem('token') &&
               <Route path='/' component={Login} />
