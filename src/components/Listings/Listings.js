@@ -1,26 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import ListingCard from './ListingCard';
-import { results } from '../../api/data';
+import {connect} from 'react-redux';
+import Loader from 'react-loader-spinner';
 import { Container, Row } from "reactstrap";
+import {getLoggedOut} from '../../actions/logout';
+import {fetchListings} from '../../actions/fetchListings';
 
 
-const Listings = () => {
-    const [data] = useState(results);
-    
+const Listings = props => {
+
+    useEffect(() => {
+        props.fetchListings();
+    }, []);
+
     return(
-        <Container>
-            <Row>
-            {
-                data.data.map(listing => (
-                <div key={listing.id}>
-                    <ListingCard listing={listing}/>
-                </div>
-                
-                ))
+        <div>
+            <button onClick={props.getLoggedOut}>
+                logout
+            </button>
+
+            {props.isLoading &&
+                <Loader type="Rings" color="red" />
             }
-            </Row>
-        </Container>
+          
+            {!props.isLoading &&
+        
+                <Container>
+                    <Row>
+                    {
+                        props.listingData.map(listing => (
+                        <div key={listing.id}>
+                            <ListingCard listing={listing}/>
+                        </div>
+                        
+                        ))
+                    }
+                    </Row>
+                </Container>
+            }
+        </div>
     )
 }
 
-export default Listings;
+const mapStateToProps = state => ({
+    listingData:  state.listingData.listingData,
+    isLoading: state.listingData.isLoading
+});
+
+export default connect(mapStateToProps, {getLoggedOut, fetchListings})(Listings);
