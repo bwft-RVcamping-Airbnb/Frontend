@@ -48,30 +48,6 @@ const Login = props => {
 
           <input type='submit' />
         </form>
-        {/* <form onSubmit={handleSubmit}>
-          <label htmlFor='username'>Username: </label>
-            <input 
-              id='username'
-              type='text'
-              placeholder=' Enter Username'
-              onChange = {e => setUsername(e.target.value)}
-              name='username'
-              value={username}
-            
-            /> 
-
-          <label htmlFor='password'>Password: </label>
-            <input 
-              id='password'
-              type='password'
-              placeholder=' Enter Password'
-              onChange = {e => setPassword(e.target.value)}
-              name='password'
-              value={password}
-          
-            />
-            <Button color="primary" component="button" variant="contained" size="small" type="submit">Login</Button>
-         </form> */}
       </>
       }
     </div>
