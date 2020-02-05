@@ -1,7 +1,7 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 
-function LandOwnerLogin() {
+function RegisterRVUser() {
   const { register, handleSubmit, errors} = useForm()
   const onSubmit = (data) => {
     console.log(data);
@@ -11,9 +11,9 @@ function LandOwnerLogin() {
     <form className="App" onSubmit={handleSubmit(onSubmit)}>
       <h2>Land Owner Login</h2>
       <label>Name</label>
-      <input name='name' ref={register({ required: true})} />
+      <input name='username' ref={register({ required: true})} />
 
-      {errors.name && errors.name.type === 'required' && (<p>This is required</p>
+      {errors.username && errors.username.type === 'required' && (<p>This is required</p>
       )}
 
       <label>email</label>
@@ -27,4 +27,4 @@ function LandOwnerLogin() {
   )
 }
 
-export default LandOwnerLogin;
+export default RegisterRVUser;
