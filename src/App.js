@@ -22,7 +22,7 @@ const App = () => {
       {/* <NavBar /> */}
           <>
           {!localStorage.getItem('token') &&  
-              <Route exact path='/' component={Login} />   
+              <Route path='/' component={Login} />   
           }
 
           <Route exact path='/login' component={Login} />
