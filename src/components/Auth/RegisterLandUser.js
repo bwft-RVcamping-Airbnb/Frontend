@@ -22,7 +22,6 @@ import { connect } from 'react-redux';
     });
   };
 
-
   const handleSubmit= e => {
     e.preventDefault();
     props.registerNewLandUser(signup);
