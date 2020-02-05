@@ -18,10 +18,11 @@ import './css/App.css';
 function App(){
 
   return (
+    <ThemeProvider>
       <div className="App">
-      {/* <NavBar /> */}
-          <>
-          <Switch>
+        <NavBar /> 
+        <>
+        <Switch>
           <Route path = '/register/rv' component={RegisterRVUser} />
             <Route path = '/register/land' component ={RegisterLandUser} />
             <Route path = '/register/success' component={AccountSuccess} />
@@ -32,6 +33,7 @@ function App(){
           </Switch>
         </>
       </div>
+    </ThemeProvider>
   );
 }
 export default App;

@@ -1,24 +1,23 @@
 import React from 'react';
+import ListingCard from './Listings'
 import {
-  Container,
   Card,
-  CardActions,
-  CardContent,
-  Button,
-  Grid,
-  Typography,
-  makeStyles, 
-  Divider,
-  Paper
+n
 } from '@material-ui/core';
 
 const ListingCard = props => {
 
   return (
     <>
-      <Grid container wrap='wrap' className={classes.grid}></Grid>
+      <Grid>
+        <Card>
+          <CardContent>
+            <ListingCard />
+          </CardContent>
+        </Card>
+      </Grid>
     </>
   )
 };
 
-export default ListingCard; 
+export default ListingCard; yarn
