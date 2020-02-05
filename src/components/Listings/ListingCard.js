@@ -1,18 +1,20 @@
 import React from 'react';
-import ListingCard from './Listings'
+
 import {
   Card,
-n
+  Grid,
+  CardContent
 } from '@material-ui/core';
 
 const ListingCard = props => {
 
   return (
     <>
+      <p>{props.listing.title} </p>
       <Grid>
         <Card>
           <CardContent>
-            <ListingCard />
+           {props.listing.title}
           </CardContent>
         </Card>
       </Grid>
@@ -20,4 +22,4 @@ const ListingCard = props => {
   )
 };
 
-export default ListingCard; yarn
+export default ListingCard; 

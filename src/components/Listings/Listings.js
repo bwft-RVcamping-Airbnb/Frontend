@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import ListingCard from './ListingCard';
 import { results } from '../../api/data';
 
 const Listings = () => {
@@ -10,8 +10,7 @@ const Listings = () => {
             {
                 data.data.map(listing => (
                 <div key={listing.id}>
-                     <p >{listing.title}</p>
-                    <img src={listing.img} />
+                     <ListingCard listing={Listings}/>
                 </div>
                 
                 ))

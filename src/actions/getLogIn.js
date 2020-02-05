@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { push } from 'connected-react-router'
 
 import {LOGIN_FETCHING, LOGIN_SUCCESS, LOGIN_FAILURE} from './index';
 
@@ -10,11 +11,7 @@ export const getUserLogIn = credentials => {
         axios.post('https://rvairbnb.herokuapp.com/api/auth/login', credentials)
         .then(res => {
             localStorage.setItem('token', res.data.token);
-            localStorage.setItem('user', JSON.stringify({
-                username: res.data.username,
-                id: res.data.id,
-                isLandOwner: res.data.is_land_owner
-            }))
+        
             dispatch({
                 type: LOGIN_SUCCESS, 
                 payload: {
@@ -24,6 +21,8 @@ export const getUserLogIn = credentials => {
                 }
             });
 
+            dispatch(push('/'));
+            
             console.log(res);
         })
         .catch(err => {
