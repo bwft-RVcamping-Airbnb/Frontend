@@ -1,6 +1,5 @@
 import React from "react";
 import Loader from 'react-loader-spinner';
-import {useHistory} from 'react-router-dom';
 import { useForm } from 'react-hook-form'
 import { connect } from 'react-redux';
 
@@ -10,7 +9,7 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Button from '@material-ui/core/Button';
 
 const Login = props => {
-  const history = useHistory();
+
   const { register, handleSubmit, errors} = useForm()
 
   const onSubmit = data => {

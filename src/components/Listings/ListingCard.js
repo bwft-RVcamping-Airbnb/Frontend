@@ -13,16 +13,7 @@ const ListingCard = props => {
       <h1>Listing Card</h1>
       <p>{props.listing.location} </p>
 
-      {/* <>
-      <p>{props.listing.title} </p>
-      <Grid>
-        <Card>
-          <CardContent>
-           {props.listing.title}
-          </CardContent>
-        </Card>
-      </Grid>
-      </> */}
+     
     </div>
     
   )
