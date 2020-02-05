@@ -17,7 +17,7 @@ import Login from './components/Auth/Login'
 import './css/App.css';
 
 const App = props => {
-  console.log('app: ', props);
+  console.log('app: ', props.store);
   return (
       <div className="App">
       {/* <NavBar /> */}
@@ -25,13 +25,14 @@ const App = props => {
           {!localStorage.getItem('token') &&
               <Route path='/' component={Login} />
           }
+
           <Route path = '/register/rv' component={RegisterRVUser} />
           <Route path = '/register/land' component ={RegisterLandUser} />
           <Route path = '/register/success' component={AccountSuccess} />
-          
+
           <Switch>
             <PrivateRoute path='/dashboard' component={Dashboard} />
-            <Route  path='/dashboard/user/:id/add' component={AddListing} />
+            <PrivateRoute path='/dashboard/user/:id/add' component={AddListing} />
             <PrivateRoute path = '/' component={Dashboard} />
           </Switch>
         </>

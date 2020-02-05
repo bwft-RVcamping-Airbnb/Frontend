@@ -10,12 +10,7 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 const Login = props => {
   const history = useHistory();
-  // const [savedUser, setSavedUser] = useState('');
   const { register, handleSubmit, errors} = useForm()
-
-  // useEffect(() => {
-  //   setSavedUser(JSON.parse(localStorage.getItem('user')));
-  // }, []);
 
   const onSubmit = data => {
     const credentials = {
@@ -27,9 +22,6 @@ const Login = props => {
     history.push(`/dashboard`);
   };
 
-  console.log('user:' , props.user);
-  console.log('render 1: ', history);
-  // console.log(savedUser);
   return (
     <div className="rv-owner-login-container">
       

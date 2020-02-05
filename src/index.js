@@ -13,7 +13,7 @@ import './css/index.css';
 import App from './App';
 
 
-const store = createStore( rootReducer,  composeWithDevTools(applyMiddleware(thunk, logger)));
+const store = createStore( rootReducer, composeWithDevTools(applyMiddleware(thunk, logger)));
 //console.log(store.getState());
 
 ReactDOM.render(
