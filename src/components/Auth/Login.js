@@ -19,7 +19,6 @@ const Login = props => {
     }
     props.getUserLogIn(credentials);
    
-    history.push(`/dashboard`);
   };
 
   return (

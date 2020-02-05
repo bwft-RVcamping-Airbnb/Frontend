@@ -31,8 +31,7 @@ const App = props => {
           <Route path = '/register/success' component={AccountSuccess} />
 
           <Switch>
-            <PrivateRoute path='/dashboard' component={Dashboard} />
-            <PrivateRoute path='/dashboard/user/:id/add' component={AddListing} />
+            <PrivateRoute path='/user/:id/add' component={AddListing} />
             <PrivateRoute path = '/' component={Dashboard} />
           </Switch>
         </>
