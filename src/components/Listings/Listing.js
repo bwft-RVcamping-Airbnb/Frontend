@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ListingCard from './ListingCard'; 
-import Axios from 'axios';
+import axios from 'axios';
 
 const Listing = (props) => {
   const [listing, setListing] = useState();

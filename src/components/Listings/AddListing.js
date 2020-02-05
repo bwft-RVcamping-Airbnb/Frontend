@@ -1,67 +1,44 @@
-import React, { useState } from 'react';
+import React from 'react'
+import { useForm } from 'react-hook-form'
 
-const AddListing= () => {
-  const [listing, setListing] = useState ({
-   title: "",
-   location: "", 
-   description: "",
-   price: ""
-  });
+function AddListing() {
+  const { register, handleSubmit, errors} = useForm()
+  const onSubmit = (data) => {
+    console.log(data);
+  }
+  
+  return (
+    <form className="App" onSubmit={handleSubmit(onSubmit)}>
+      <h2>Add Listing</h2>
+      <label>Title</label>
+      <input name='title' ref={register({ required: true})} />
 
-  const handleChange = e => {
-    setListing({ 
-     ...listing, 
-     [e.target.name]: e.target.value 
-   });
- };
+      {errors.title && errors.title.type === 'required' && (<p>This is required</p>
+      )}
 
- const submitForm = e => {
-   e.preventDefault();
-    
- };
- return (
-   <form onSubmit={submitForm}>
-     <h2>Land Listing</h2>
-     <label htmlFor='title'>Title</label>
-       <input 
-         id='title'
-         type='text'
-         placeholder='Title'
-         onChange = {handleChange}
-         name='title'
-         value={listing.title}
-       /> 
-     <label htmlFor='location'>Location</label>
-       <input 
-         id='location'
-         type='text'
-         placeholder='UserName'
-         onChange = {handleChange}
-         name='location'
-         value={listing.address}
-       /> 
-     <label htmlFor='description'>Description</label>
-       <input 
-         id='description'
-         type='text'
-         placeholder='Description'
-         onChange = {handleChange}
-         name='description'
-         value={listing.description}
-       />
-       <label htmlFor='currency-field'>Price</label>
-       <input 
-         id='price'
-         type='number'
-         placeholder='Price'
-         onChange = {handleChange}
-         name='price'
-         value={listing.price}
-       />
-          
-     <button>List</button>
-   </form>
- )
+      <label>Location</label>
+      <input name='location' ref={register({ required: true})} />
+
+      {errors.location && errors.location.type === 'required' && (<p>This is required</p>
+      )}
+
+      <label>Price</label>
+      <input name='price' ref={register({ required: true})} />
+      {errors.price && <p>This is required</p>}
+
+      <label>Description</label>
+      <select name='description' ref={register({ required: true})} >
+        <option value="">Select...</option>
+        <option value="small">Small 8ft to 16ft</option>
+        <option value="medium">Medium 17ft to 25ft</option>
+        <option value="large">Large 26ft to 35ft</option>
+        <option value="xlarge">XLarge 36ft to 43ft</option>
+      </select>
+      {errors.description && <p>This is required</p>}
+
+      <input type='submit' />
+    </form>
+  )
 }
 
 export default AddListing;
