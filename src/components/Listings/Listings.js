@@ -1,9 +1,11 @@
 import React, {useEffect} from 'react';
-import { push } from 'connected-react-router'
+import { Link } from 'react-router-dom';
+import { push } from 'connected-react-router';
 import {connect} from 'react-redux';
 import Loader from 'react-loader-spinner';
 import { Container, Row } from "reactstrap";
 import {Card,CardBody,CardTitle,CardText,} from "reactstrap";
+import rvPic from '../../img/rv_placeholder.jpg';
 
 import {getLoggedOut} from '../../actions/logout';
 import {fetchListings} from '../../actions/fetchListings';
@@ -34,7 +36,11 @@ const Listings = props => {
                     <Row>
                     {
                         props.listingData.map(listing => (
+                        <Link to={`/listing/${listing.id}`}>
                         <div key={listing.id} onClick={e => changeRoute(`/listing/${listing.id}`)}>
+                            <div className="image">
+                                <img src={rvPic} alt="RV"/>
+                            </div>
                             <Card>
                                 <CardBody>
                                 <CardTitle>{listing.title}</CardTitle>
@@ -44,6 +50,7 @@ const Listings = props => {
                                 </CardBody>
                             </Card>
                         </div>
+                        </Link>
                         
                         ))
                     }
