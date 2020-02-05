@@ -14,7 +14,6 @@ import { connect } from 'react-redux';
     is_land_owner: props.isLandOwner
    });
   
- 
    const handleChange = e => {
     setSignUp({ 
       ...signup, 
