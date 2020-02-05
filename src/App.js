@@ -11,6 +11,7 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import AddListing from './components/Listings/AddListing';
 import Dashboard from './components/Dashboard/Dashboard';
 import Login from './components/Auth/Login';
+import Listing from './components/Listings/Listing';
 
 import './css/App.css';
 
@@ -32,7 +33,9 @@ const App = () => {
 
           <Switch>
             <PrivateRoute path='/user/:id/add' component={AddListing} />
-            <PrivateRoute exact path = '/' component={Dashboard} />
+            <PrivateRoute exact path = '/dashboard' component={Dashboard} />
+            <PrivateRoute exact path = '/listing/:id' component={Listing} />
+            <PrivateRoute exact path = '/listing' component={Listing} />
           </Switch>
         </>
       </div>

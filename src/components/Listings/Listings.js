@@ -1,17 +1,22 @@
-import React, { useState, useEffect} from 'react';
-import ListingCard from './ListingCard';
+import React, {useEffect} from 'react';
+import { push } from 'connected-react-router'
 import {connect} from 'react-redux';
 import Loader from 'react-loader-spinner';
 import { Container, Row } from "reactstrap";
+import {Card,CardBody,CardTitle,CardText,} from "reactstrap";
+
 import {getLoggedOut} from '../../actions/logout';
 import {fetchListings} from '../../actions/fetchListings';
-
 
 const Listings = props => {
 
     useEffect(() => {
         props.fetchListings();
     }, []);
+
+    const changeRoute = route => {
+        props.push(route);
+    }
 
     return(
         <div>
@@ -29,8 +34,15 @@ const Listings = props => {
                     <Row>
                     {
                         props.listingData.map(listing => (
-                        <div key={listing.id}>
-                            <ListingCard listing={listing}/>
+                        <div key={listing.id} onClick={e => changeRoute(`/listing/${listing.id}`)}>
+                            <Card>
+                                <CardBody>
+                                <CardTitle>{listing.title}</CardTitle>
+                                <CardText>Location: {listing.location}</CardText>
+                                <CardText>Description: {listing.description}</CardText>
+                                <CardText>Price: ${listing.price_per_day} </CardText>
+                                </CardBody>
+                            </Card>
                         </div>
                         
                         ))
@@ -47,4 +59,4 @@ const mapStateToProps = state => ({
     isLoading: state.listingData.isLoading
 });
 
-export default connect(mapStateToProps, {getLoggedOut, fetchListings})(Listings);
+export default connect(mapStateToProps, {getLoggedOut, fetchListings, push})(Listings);

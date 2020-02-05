@@ -21,7 +21,7 @@ export const getUserLogIn = credentials => {
                 }
             });
 
-            dispatch(push('/'));
+            dispatch(push('/dashboard'));
 
             console.log(res);
         })
@@ -31,7 +31,7 @@ export const getUserLogIn = credentials => {
                 payload: {errors: err}
             });
             
-            dispatch(push('/login'));
+            dispatch(push('/'));
             console.log(err);
         })
     }
