@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import {getUserLogIn} from '../../actions/getLogIn';
 
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Button from '@material-ui/core/Button';
 
 const Login = props => {
   const history = useHistory();
@@ -43,8 +44,10 @@ const Login = props => {
 
           {errors.password && errors.password.type === 'required' && (<p>Password is required</p>
           )}
+          <Button variant="contained" color="primary">
+            <input type='submit' />
+          </Button>
 
-          <input type='submit' />
         </form>
       </>
       }

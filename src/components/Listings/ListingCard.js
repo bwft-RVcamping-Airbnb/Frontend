@@ -1,22 +1,23 @@
 import React from 'react';
+
 import {
-  Container,
   Card,
-  CardActions,
-  CardContent,
-  Button,
   Grid,
-  Typography,
-  makeStyles, 
-  Divider,
-  Paper
+  CardContent
 } from '@material-ui/core';
 
 const ListingCard = props => {
 
   return (
     <>
-      <Grid container wrap='wrap' className={classes.grid}></Grid>
+      <p>{props.listing.title} </p>
+      <Grid>
+        <Card>
+          <CardContent>
+           {props.listing.title}
+          </CardContent>
+        </Card>
+      </Grid>
     </>
   )
 };

@@ -19,6 +19,7 @@ import './css/App.css';
 const App = props => {
   console.log('app: ', props.store);
   return (
+    <ThemeProvider>
       <div className="App">
       {/* <NavBar /> */}
           <>
@@ -36,6 +37,7 @@ const App = props => {
           </Switch>
         </>
       </div>
+    </ThemeProvider>
   );
 }
 
