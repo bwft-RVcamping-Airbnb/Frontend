@@ -21,14 +21,14 @@ function App(){
       <div className="App">
       {/* <NavBar /> */}
           <>
-          <Route exact path='/' component={Login} />
-          <Route path='/rv/register' component={RegisterRVUser} />
-          <Route path='/land/register' component={RegisterLandUser} />
-          <Route path='/account/success' component={AccountSuccess} />
-
           <Switch>
-            <PrivateRoute exact path='/dashboard/user/' component={Dashboard} />
-            <PrivateRoute path='/dashboard/user/:id/add-listing' component={AddListing} />
+          <Route path = '/register/rv' component={RegisterRVUser} />
+            <Route path = '/register/land' component ={RegisterLandUser} />
+            <Route path = '/register/success' component={AccountSuccess} />
+            <Route exact path='/' component={Login} />
+            <PrivateRoute exact path='/dashboard' component={Dashboard} />
+            <Route exact path='/dashboard/user/:id/add' component={AddListing} />
+            
           </Switch>
         </>
       </div>

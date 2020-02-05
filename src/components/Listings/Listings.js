@@ -9,8 +9,8 @@ const Listings = () => {
         <div>
             {
                 data.data.map(listing => (
-                <div>
-                     <p key={listing.id}>{listing.title}</p>
+                <div key={listing.id}>
+                     <p >{listing.title}</p>
                     <img src={listing.img} />
                 </div>
                 

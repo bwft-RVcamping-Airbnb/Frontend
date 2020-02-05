@@ -18,7 +18,7 @@ const RegisterRVUser = props => {
     }
 
     props.registerNewRVUser(credentials);
-    props.history.push('/account/success');
+    props.history.push('/register/success');
   }
   
   return (
