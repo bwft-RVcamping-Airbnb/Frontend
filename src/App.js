@@ -1,6 +1,7 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 import NavBar from './components/Navigation/Navbar';
+import { connect } from 'react-redux';
 
 
 import { ThemeProvider } from '@material-ui/core/styles';
@@ -15,23 +16,31 @@ import Login from './components/Auth/Login'
 
 import './css/App.css';
 
-function App(){
-
+const App = props => {
+  console.log('app: ', props);
   return (
       <div className="App">
       {/* <NavBar /> */}
           <>
-          <Switch>
+          {!localStorage.getItem('token') &&
+              <Route path='/' component={Login} />
+          }
           <Route path = '/register/rv' component={RegisterRVUser} />
-            <Route path = '/register/land' component ={RegisterLandUser} />
-            <Route path = '/register/success' component={AccountSuccess} />
-            <Route exact path='/' component={Login} />
-            <PrivateRoute exact path='/dashboard' component={Dashboard} />
-            <Route exact path='/dashboard/user/:id/add' component={AddListing} />
-            
+          <Route path = '/register/land' component ={RegisterLandUser} />
+          <Route path = '/register/success' component={AccountSuccess} />
+          
+          <Switch>
+            <PrivateRoute path='/dashboard' component={Dashboard} />
+            <Route  path='/dashboard/user/:id/add' component={AddListing} />
+            <PrivateRoute path = '/' component={Dashboard} />
           </Switch>
         </>
       </div>
   );
 }
-export default App;
+
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+export default connect(mapStateToProps, {})(App);

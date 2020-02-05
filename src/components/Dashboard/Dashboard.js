@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Listings from '../Listings/Listings';
 
 const Dashboard = (props) => {
-   console.log(props.user);
+   
     return(
         <div className="dashboard-container">
             <h1>Welcome to the dashboard</h1>

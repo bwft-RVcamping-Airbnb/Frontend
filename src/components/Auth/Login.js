@@ -1,5 +1,6 @@
-import React, {useState ,useEffect} from "react";
+import React from "react";
 import Loader from 'react-loader-spinner';
+import {useHistory} from 'react-router-dom';
 import { useForm } from 'react-hook-form'
 import { connect } from 'react-redux';
 
@@ -8,26 +9,27 @@ import {getUserLogIn} from '../../actions/getLogIn';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 const Login = props => {
-  const [savedUser, setSavedUser] = useState({});
+  const history = useHistory();
+  // const [savedUser, setSavedUser] = useState('');
   const { register, handleSubmit, errors} = useForm()
 
-  useEffect(() => {
-    setSavedUser(JSON.parse(localStorage.getItem('user')));
-  }, []);
+  // useEffect(() => {
+  //   setSavedUser(JSON.parse(localStorage.getItem('user')));
+  // }, []);
 
   const onSubmit = data => {
-    console.log(data);
-
     const credentials = {
       username: data.username,
       password: data.password
     }
     props.getUserLogIn(credentials);
    
-    props.history.push(`/dashboard`);
+    history.push(`/dashboard`);
   };
 
-
+  console.log('user:' , props.user);
+  console.log('render 1: ', history);
+  // console.log(savedUser);
   return (
     <div className="rv-owner-login-container">
       
