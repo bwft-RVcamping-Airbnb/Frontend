@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-// import AppBar from '@material-ui/core/AppBar';
-// import ToolBar from '@material-ui/core/ToolBar';
-// import Typography from '@material-ui/core/Typography';
+import "./Navbar.css"
 import { Navbar } from 'reactstrap';
 import {connect} from 'react-redux';
 
@@ -13,11 +11,11 @@ import LogOut from '../Auth/Logout';
 const NavigationBar = props => {
   return(
     <div>
-      <Navbar>
+      <Navbar color='primary'>
         <div>
         {props.user.isLoggedIn && 
           <>
-            <Link to='/dashboard'>Dashboard</Link>
+            <Link to='/dashboard' className='navbar'>Dashboard</Link>
             <LogOut/>
           </>
         }
@@ -37,8 +35,7 @@ const NavigationBar = props => {
           </>
         }
         </div>
-     
-      </Navbar>
+     </Navbar>
     </div>
   )
 }
