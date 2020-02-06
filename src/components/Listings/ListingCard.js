@@ -15,6 +15,8 @@ const ListingCard = props => {
         </CardBody>
       </Card>
       </>
+      <button>Edit</button>
+      <button>Delete</button>
     </div>
   )
 };

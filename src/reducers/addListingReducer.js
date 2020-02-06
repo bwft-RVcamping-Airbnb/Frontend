@@ -1,5 +1,4 @@
 import {ADDING_LISTING, ADDING_LISTING_SUCCESS ,ADDING_LISTING_FAILURE} from '../actions/index';
-import {axiosWithAuth} from '../utils/axiosWithAuth';
 
 const initialState = {
     isLoading: false,

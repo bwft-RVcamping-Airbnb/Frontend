@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import { Link } from 'react-router-dom';
 import { push } from 'connected-react-router';
 import {connect} from 'react-redux';
 import Loader from 'react-loader-spinner';
@@ -14,7 +13,6 @@ import {getLoggedOut} from '../../actions/logout';
 import {fetchListings} from '../../actions/fetchListings';
 
 const Listings = props => {
-
     useEffect(() => {
         props.fetchListings();
     }, []);
@@ -36,15 +34,12 @@ const Listings = props => {
                     <Row>
                     {
                         props.listingData.map(listing => (
-                        <Link to={`/listing/${listing.id}`} key={listing.id}>
-                        <div  onClick={e => changeRoute(`/listing/${listing.id}`)}>
+                        <div key={listing.id}>
                             <div className="image">
                                 <img src={rvPic} alt="RV"/>
                             </div>
                             <ListingCard listing={listing} />
                         </div>
-                        </Link>
-                        
                         ))
                     }
                     </Row>
