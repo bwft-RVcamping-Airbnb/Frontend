@@ -2,6 +2,7 @@ import React, {useEffect} from 'react'
 import { useForm } from 'react-hook-form'
 import Loader from 'react-loader-spinner';
 import { connect } from 'react-redux';
+import './ListingCard.css'
 
 import {updateListingAction } from '../../actions/updateListingAction';
 import {fetchSingleListingAction} from '../../actions/fetchSingleListingAction';

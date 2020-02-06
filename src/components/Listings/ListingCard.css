@@ -1,0 +1,12 @@
+.image {
+  width: 65%;
+  display: flex;
+  justify-content: center;
+  border: dotted 1px;
+}
+
+.card-image {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+}

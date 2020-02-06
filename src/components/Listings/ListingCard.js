@@ -1,12 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import { connect } from 'react-redux';
 import {  Link } from 'react-router-dom';
+import rvPic from '../../img/rv_placeholder.jpg';
 import {
   Card,
   CardBody,
   CardTitle,
   CardText,
-  Button
+  Button,
+  CardImg
 } from "reactstrap";
 
 import DeleteListing from '../DeleteListing/DeleteListing';
@@ -35,6 +37,7 @@ const ListingCard = props => {
           <CardText>Description: {props.listing.description}</CardText>
           <CardText>Price: ${props.listing.price_per_day} </CardText>
         </CardBody>
+        <CardImg bottom width='50%' src={rvPic} alt="RVimage"/>
       </Card>
       </>
       {(props.user.isLandOwner === 1 || props.user.isLandOwner === 'yes') && 
