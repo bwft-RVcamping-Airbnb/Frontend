@@ -25,7 +25,8 @@ export const AddListingReducer = (state = initialState, action) => {
                 case ADDING_LISTING_FAILURE:
                     return{
                         ...state,
-                        errors: action.payload
+                        errors: action.payload.errors,
+                        message: action.payload.message
                     }
             default:
                 return state

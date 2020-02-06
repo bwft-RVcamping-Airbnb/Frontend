@@ -3,12 +3,22 @@ import { useForm } from 'react-hook-form'
 import Loader from 'react-loader-spinner';
 import { connect } from 'react-redux';
 
+import {addListingAction } from '../../actions/addListingAction';
+
+
 const AddListing = props => {
 
   const { register, handleSubmit, errors} = useForm();
 
   const onSubmit = (data) => {
+    const body ={
+      location: data.location,
+      description: data.description,
+      price_per_day: data.price,
+      photo: data.photo_url || ''
+    }
     console.log(data);
+    addListingAction()
   }
   
   return (
@@ -23,18 +33,44 @@ const AddListing = props => {
 
             <form className="App" onSubmit={handleSubmit(onSubmit)}>
             <div>
-              <label>Title</label>
-              <input name='title' ref={register({ required: true})} />
+              <label>Title: </label>
+              <input type="text" name='title' ref={register({title: 'title'},{required: true})}/>
               {errors.title && errors.title.type === 'required' && (<p>This is required</p>)}
             </div>
             <div>
+              <label>Description: </label>
+              <textarea rows="2" cols="30" name='description' ref={register({description: 'description'},{required: true})}/>
+              {errors.description && <p>This is required</p>}
+            </div>
+            <div>
+            <label>Log Size</label>
+              <select name='size' ref={register({size: 'size'},{ required: true})} >
+                <option value="">Select...</option>
+                <option value="small">Small 8ft to 16ft</option>
+                <option value="medium">Medium 17ft to 25ft</option>
+                <option value="large">Large 26ft to 35ft</option>
+                <option value="xlarge">XLarge 36ft to 43ft</option>
+              </select>
+              {errors.size && <p>This is required</p>}
+            </div>
+            <div>
+              <label>Price</label>
+              <input type="number" name='price' ref={register({price: 'price'},{required: true})} />
+              {errors.price && <p>This is required</p>}
+            </div>
+            <div>
+              <label>Photo: </label>
+              <input type='url' name='photo_url' ref={register({photo_url: 'photo_url' })} />
+              {errors.photo_url && errors.photo_url.type === 'required' && (<p>This is required</p>)}
+            </div>
+            <div>
               <label>Location</label>
-              <input name='location' ref={register({ required: true})} />
+              <input type="text" name='location' ref={register({location: 'location'},{ required: true})} />
               {errors.location && errors.location.type === 'required' && (<p>This is required</p>)}
             </div>
             <div>
             <label>State</label>
-              <select name='state' ref={register({ required: true})} >
+              <select name='state' ref={register({state: 'state'},{ required: true})} >
                 <option value="">Select...</option>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
@@ -90,22 +126,8 @@ const AddListing = props => {
               </select>
               {errors.state && <p>This is required</p>}
             </div>
-            <div>
-              <label>Price</label>
-              <input name='price' ref={register({ required: true})} />
-              {errors.price && <p>This is required</p>}
-            </div>
-            <div>
-            <label>Log Size</label>
-              <select name='size' ref={register({ required: true})} >
-                <option value="">Select...</option>
-                <option value="small">Small 8ft to 16ft</option>
-                <option value="medium">Medium 17ft to 25ft</option>
-                <option value="large">Large 26ft to 35ft</option>
-                <option value="xlarge">XLarge 36ft to 43ft</option>
-              </select>
-              {errors.size && <p>This is required</p>}
-            </div>
+            
+            
               <input type='submit' />
             </form>
 
@@ -118,7 +140,7 @@ const AddListing = props => {
 }
 
 const mapStateToProps = state => ({
-
+    isLoading: state.addListing.isLoading
 });
 
-export default connect(mapStateToProps, {})(AddListing);
+export default connect(mapStateToProps, {addListingAction})(AddListing);
