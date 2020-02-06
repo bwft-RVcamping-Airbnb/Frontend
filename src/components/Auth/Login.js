@@ -1,4 +1,4 @@
-import React, {useState ,useEffect} from "react";
+import React from "react";
 import Loader from 'react-loader-spinner';
 import { useForm } from 'react-hook-form'
 import { connect } from 'react-redux';
@@ -6,27 +6,20 @@ import { connect } from 'react-redux';
 import {getUserLogIn} from '../../actions/getLogIn';
 
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Button from '@material-ui/core/Button';
 
 const Login = props => {
-  const [savedUser, setSavedUser] = useState({});
+
   const { register, handleSubmit, errors} = useForm()
 
-  useEffect(() => {
-    setSavedUser(JSON.parse(localStorage.getItem('user')));
-  }, []);
-
   const onSubmit = data => {
-    console.log(data);
-
     const credentials = {
       username: data.username,
       password: data.password
     }
     props.getUserLogIn(credentials);
    
-    props.history.push(`/dashboard`);
   };
-
 
   return (
     <div className="rv-owner-login-container">
@@ -50,8 +43,11 @@ const Login = props => {
 
           {errors.password && errors.password.type === 'required' && (<p>Password is required</p>
           )}
+           
+          <Button variant="contained" color="primary">
+            <input type='submit' />
+          </Button>
 
-          <input type='submit' />
         </form>
       </>
       }
