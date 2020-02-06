@@ -14,6 +14,7 @@ const NavigationBar = props => {
   return(
     <div>
       <Navbar>
+        <div>
         {props.user.isLoggedIn && 
           <>
             <Link to='/dashboard'>Dashboard</Link>
@@ -21,12 +22,22 @@ const NavigationBar = props => {
           </>
         }
 
+        {(!props.user.isLandOwner === 0 || props.user.isLandOwner) && 
+                <>
+                    <Link to={`/listing/add`}>
+                        Add Listing
+                    </Link>
+                </>
+           }
+
         {!props.user.isLoggedIn && 
           <>
            <Link to='/'>Login</Link>
+           <Link to='/register'>Sign-Up</Link>
           </>
         }
-        
+        </div>
+     
       </Navbar>
     </div>
   )
