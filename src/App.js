@@ -35,7 +35,7 @@ const App = () => {
             <PrivateRoute path='/listing/add' component={AddListing} />
             <PrivateRoute exact path = '/dashboard' component={Dashboard} />
             <PrivateRoute path='/listing/:id/edit' component={EditListing} />
-            <PrivateRoute path='/404/' component={ErrorMessage} />
+            <PrivateRoute path='/404' component={ErrorMessage} />
           </Switch>
         </>
       </div>
