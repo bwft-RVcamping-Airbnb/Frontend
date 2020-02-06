@@ -12,7 +12,7 @@ const NavigationBar = props => {
   return(
     <div>
       <Navbar color='primary'>
-        <div>
+        <div className="links-container">
         {props.user.isLoggedIn && 
           <>
             <Link to='/dashboard' className='navbar'>Dashboard</Link>
