@@ -21,8 +21,10 @@ const ListingCard = props => {
         </CardBody>
       </Card>
       </>
+      <button>Edit</button>
+      <button>Delete</button>
     </div>
   )
 };
 
-export default ListingCard; 
+export default ListingCard;

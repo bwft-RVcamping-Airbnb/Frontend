@@ -12,6 +12,7 @@ import AddListing from './components/Listings/AddListing';
 import Dashboard from './components/Dashboard/Dashboard';
 import Login from './components/Auth/Login';
 
+
 import './css/App.css';
 
 const App = () => {
@@ -21,10 +22,10 @@ const App = () => {
       <div className="App">
       <NavBar /> 
           <>
-          {!localStorage.getItem('token') &&  
+          {/* {!localStorage.getItem('token') &&  
               <Route exact path='/' component={Login} />   
-          }
-
+          } */}
+          <Route exact path='/' component={Login} />
           <Route exact path='/login' component={Login} />
           <Route path = '/register/rv' component={RegisterRVUser} />
           <Route path = '/register/land' component ={RegisterLandUser} />
@@ -32,7 +33,7 @@ const App = () => {
 
           <Switch>
             <PrivateRoute path='/user/:id/add' component={AddListing} />
-            <PrivateRoute exact path = '/' component={Dashboard} />
+            <PrivateRoute exact path = '/dashboard' component={Dashboard} />
           </Switch>
         </>
       </div>

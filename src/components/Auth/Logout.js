@@ -7,7 +7,7 @@ const Logout = props => {
 
     const clearToken = () => {
         localStorage.removeItem('token');
-        props.push('/login');
+        props.push('/');
     }
 
     return(

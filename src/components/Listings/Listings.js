@@ -1,23 +1,29 @@
-import React, { useState, useEffect} from 'react';
-import ListingCard from './ListingCard';
+import React, {useEffect} from 'react';
+import { push } from 'connected-react-router';
 import {connect} from 'react-redux';
 import Loader from 'react-loader-spinner';
 import { Container, Row, Button } from "reactstrap";
+
+import ListingCard from './ListingCard';
+
+import rvPic from '../../img/rv_placeholder.jpg';
+import '../../css/listings.css';
+
+
 import {getLoggedOut} from '../../actions/logout';
 import {fetchListings} from '../../actions/fetchListings';
 
-
 const Listings = props => {
-
     useEffect(() => {
         props.fetchListings();
     }, []);
 
+    const changeRoute = route => {
+        props.push(route);
+    }
+
     return(
         <div>
-            <Button color="danger"onClick={props.getLoggedOut}>
-                Logout
-            </Button>
 
             {props.isLoading &&
                 <Loader type="Rings" color="red" />
@@ -30,9 +36,11 @@ const Listings = props => {
                     {
                         props.listingData.map(listing => (
                         <div key={listing.id}>
-                            <ListingCard listing={listing}/>
+                            <div className="image">
+                                <img src={rvPic} alt="RV"/>
+                            </div>
+                            <ListingCard listing={listing} />
                         </div>
-                        
                         ))
                     }
                     </Row>
@@ -47,4 +55,4 @@ const mapStateToProps = state => ({
     isLoading: state.listingData.isLoading
 });
 
-export default connect(mapStateToProps, {getLoggedOut, fetchListings})(Listings);
+export default connect(mapStateToProps, {getLoggedOut, fetchListings, push})(Listings);

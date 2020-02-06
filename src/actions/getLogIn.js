@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { push } from 'connected-react-router'
+import { push } from 'connected-react-router';
 
 import {LOGIN_FETCHING, LOGIN_SUCCESS, LOGIN_FAILURE} from './index';
 
@@ -21,7 +21,7 @@ export const getUserLogIn = credentials => {
                 }
             });
 
-            dispatch(push('/'));
+            dispatch(push('/dashboard'));
 
             console.log(res);
         })
@@ -30,8 +30,9 @@ export const getUserLogIn = credentials => {
                 type: LOGIN_FAILURE, 
                 payload: {errors: err}
             });
-            
+
             dispatch(push('/login'));
+            
             console.log(err);
         })
     }
