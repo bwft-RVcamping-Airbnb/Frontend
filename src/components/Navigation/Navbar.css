@@ -1,4 +1,9 @@
 .navbar {
-  color: white;
+  
   display: flex;
+  justify-content: flex-end;
+}
+
+.navbar a {
+  color: white;
 }

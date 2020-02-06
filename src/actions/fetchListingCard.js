@@ -1,4 +1,5 @@
 import {axiosWithAuth} from '../utils/axiosWithAuth';
+import { push } from 'connected-react-router';
 
 import {FETCHING_LISTING_DATA, FETCHING_LIST_DATA_SUCCESS, FETCHING_LIST_DATA_FAILURE} from '../actions/index';
 
@@ -8,7 +9,7 @@ export const fetchListingCard = id => {
 
             dispatch({type: FETCHING_LISTING_DATA});
 
-            axiosWithAuth().get(`listings/${id}`)
+            axiosWithAuth().get(`/listings/${id}`)
             .then( res => {
                 dispatch({
                     type: FETCHING_LIST_DATA_SUCCESS,
@@ -27,6 +28,7 @@ export const fetchListingCard = id => {
                     type: FETCHING_LIST_DATA_FAILURE,
                     payload: err
                 });
+                dispatch(push('/404'));
             })
         }
 }

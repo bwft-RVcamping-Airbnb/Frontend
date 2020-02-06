@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import {  Link } from 'react-router-dom';
 import {
   Card,
   CardBody,
@@ -6,9 +8,10 @@ import {
   CardText,
 } from "reactstrap";
 
+import DeleteListing from '../DeleteListing/DeleteListing'
 
 const ListingCard = props => {
-
+  console.log(props);
   return (
     <div>
       <>
@@ -21,10 +24,22 @@ const ListingCard = props => {
         </CardBody>
       </Card>
       </>
-      <button>Edit</button>
-      <button>Delete</button>
+      {(props.user.isLandOwner === 1 || props.user.isLandOwner === 'yes') && 
+        <>
+          <Link to={`/listing/${props.listing.id}/edit`}>
+          <button>Edit</button>
+          </Link>
+          <Link to={`/listing/delete/${props.listing.id}/delete`}>
+          <DeleteListing id={props.listing.id} />
+          </Link>  
+        </>
+      }
+       
+    
     </div>
   )
 };
-
-export default ListingCard;
+const mapStateToProps = state => ({
+  user: state.user
+})
+export default connect(mapStateToProps, {})(ListingCard);

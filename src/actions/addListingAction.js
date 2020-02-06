@@ -7,7 +7,7 @@ export const addListingAction = body => {
     return dispatch => {
         dispatch({type: ADDING_LISTING});
 
-        axiosWithAuth().post('listings', body)
+        axiosWithAuth().post('/listings', body)
         .then( res => {
             dispatch({
                 type: ADDING_LISTING_SUCCESS,
@@ -24,7 +24,8 @@ export const addListingAction = body => {
                     message: err.message,
                     errors: err
                 }
-            })
+            });
+            dispatch(push('/404'));
         })
     }
 }
