@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router'
 import { getUserReducer } from './getUserReducer';
 import {fetchListingsReducer} from './fetchListingData';
-import {fetchListingCardReducer} from './fetchlistingCardReducer';
+import {fetchSingleListingReducer} from './fetchSingleListingReducer';
 import {AddListingReducer} from './addListingReducer';
 import {updateListingReducer } from './updateListingReducer';
 import {deleteListingReducer} from './deleteListingReducer';
@@ -12,7 +12,7 @@ const rootReducer = history =>  combineReducers({
     router: connectRouter(history),
     user:  getUserReducer,
     listingData: fetchListingsReducer,
-    listing: fetchListingCardReducer,
+    singleListing: fetchSingleListingReducer,
     addListing: AddListingReducer,
     updateListing: updateListingReducer,
     deleteListing: deleteListingReducer,

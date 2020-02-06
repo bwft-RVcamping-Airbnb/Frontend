@@ -16,7 +16,6 @@ import {fetchListings} from '../../actions/fetchListings';
 const Listings = props => {
     const filtered = props.listingData.filter(listing => listing.owner_id === props.user.id );
 
-
     useEffect(() => {
         props.fetchListings();
     }, []);
@@ -25,7 +24,6 @@ const Listings = props => {
         props.push(route);
     }
 
-    console.log(filtered.map(list => list.location));
     return(
         <div>
 

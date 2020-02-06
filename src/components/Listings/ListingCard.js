@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { connect } from 'react-redux';
 import {  Link } from 'react-router-dom';
 import {
@@ -8,9 +8,22 @@ import {
   CardText,
 } from "reactstrap";
 
-import DeleteListing from '../DeleteListing/DeleteListing'
+import DeleteListing from '../DeleteListing/DeleteListing';
+import {axiosWithAuth} from '../../utils/axiosWithAuth';
+
+import {fetchSingleListingAction} from '../../actions/fetchSingleListingAction';
 
 const ListingCard = props => {
+  
+  // useEffect(() => {
+  //   props.fetchSingleListingAction(1);
+  //   // axiosWithAuth().get('/listings/1')
+  //   // .then(res => console.log('axios call', res))
+  //   // .catch(err => console.log(err));
+
+  // }, []);
+
+  console.log('listing card:', props);
   return (
     <div>
       <>
@@ -33,12 +46,10 @@ const ListingCard = props => {
           </Link>  
         </>
       }
-       
-    
     </div>
   )
 };
 const mapStateToProps = state => ({
   user: state.user
 })
-export default connect(mapStateToProps, {})(ListingCard);
+export default connect(mapStateToProps, {fetchSingleListingAction})(ListingCard);
