@@ -3,26 +3,25 @@ import { useForm } from 'react-hook-form'
 import Loader from 'react-loader-spinner';
 import { connect } from 'react-redux';
 
-import {addListingAction } from '../../actions/addListingAction';
+import {updateListingAction } from '../../actions/updateListingAction';
+import {fetchListingCard} from '../../actions/fetchListingCard';
 
+const EditListing = props => {
+    const id = parseInt(props.computedMatch.params.id);
+    const { register, handleSubmit, errors} = useForm();
 
-const AddListing = props => {
+    const onSubmit = (data) => {
+        
+        const body ={
 
-  const { register, handleSubmit, errors} = useForm();
+            location: data.location
 
-  const onSubmit = (data) => {
-    const body ={
-      location: data.location,
-      description: data.description,
-      price_per_day: data.price,
-      photo: data.photo_url || ''
+        }
+        props.updateListingAction(id, body)
+        
+        console.log(data);
     }
 
-    props.addListingAction(body);
-    
-    console.log(data);
-  }
-  
   return (
     <div className="sign-up-form-container">
       {props.isLoading &&
@@ -31,7 +30,7 @@ const AddListing = props => {
 
       {!props.isLoading && 
         <>
-          <h2>Add Listing</h2>
+          <h2>Edit Listing</h2>
             <div className="form-container">
 
             <form className="App" onSubmit={handleSubmit(onSubmit)}>
@@ -42,7 +41,7 @@ const AddListing = props => {
             </div> */}
             <div>
               <label>Description: </label>
-              <textarea rows="2" cols="30" name='description' ref={register({description: 'description'},{required: true})}/>
+              <textarea rows="2" cols="30" name='description' defaultValue={'description'} ref={register({description: 'description'},{required: true})}/>
               {errors.description && <p>This is required</p>}
             </div>
             {/* <div>
@@ -143,7 +142,8 @@ const AddListing = props => {
 }
 
 const mapStateToProps = state => ({
-    isLoading: state.addListing.isLoading
+    isLoading: state.updateListing.isLoading,
+    listings: state.listingData.listingData
 });
 
-export default connect(mapStateToProps, {addListingAction})(AddListing);
+export default connect(mapStateToProps, {updateListingAction, fetchListingCard })(EditListing);

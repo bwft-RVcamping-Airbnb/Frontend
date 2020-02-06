@@ -2,15 +2,45 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import "./Navbar.css"
 import { Navbar } from 'reactstrap';
+import {connect} from 'react-redux';
 
-const NavigationBar = () => {
+import {getLoggedOut} from '../../actions/logout';
+
+import LogOut from '../Auth/Logout';
+
+const NavigationBar = props => {
   return(
     <div>
       <Navbar color='primary'>
-        <Link className='navbar' to='/dashboard'>Dashboard</Link>
-      </Navbar>
+        <div className="links-container">
+        {props.user.isLoggedIn && 
+          <>
+            <Link to='/dashboard' className='navbar'>Dashboard</Link>
+            <LogOut/>
+          </>
+        }
+
+        {(!props.user.isLandOwner === 0 || props.user.isLandOwner === 'yes') && 
+                <>
+                    <Link to={`/listing/add`}>
+                        Add Listing
+                    </Link>
+                </>
+           }
+
+        {!props.user.isLoggedIn && 
+          <>
+           <Link to='/'>Login</Link>
+           <Link to='/register'>Sign-Up</Link>
+          </>
+        }
+        </div>
+     </Navbar>
     </div>
   )
 }
-  
-export default NavigationBar;
+
+const mapStateToProps = state => ({
+  user: state.user
+})
+export default connect(mapStateToProps, {getLoggedOut})(NavigationBar);
