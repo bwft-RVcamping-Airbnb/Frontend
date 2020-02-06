@@ -1,6 +1,7 @@
 import React from 'react';
 import { push } from 'connected-react-router';
 import { connect } from 'react-redux';
+import { Button } from 'reactstrap'; 
 
 const Logout = props => {
 

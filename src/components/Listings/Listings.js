@@ -2,7 +2,7 @@ import React, { useState, useEffect} from 'react';
 import ListingCard from './ListingCard';
 import {connect} from 'react-redux';
 import Loader from 'react-loader-spinner';
-import { Container, Row } from "reactstrap";
+import { Container, Row, Button } from "reactstrap";
 import {getLoggedOut} from '../../actions/logout';
 import {fetchListings} from '../../actions/fetchListings';
 
@@ -15,9 +15,9 @@ const Listings = props => {
 
     return(
         <div>
-            <button onClick={props.getLoggedOut}>
-                logout
-            </button>
+            <Button color="danger"onClick={props.getLoggedOut}>
+                Logout
+            </Button>
 
             {props.isLoading &&
                 <Loader type="Rings" color="red" />
