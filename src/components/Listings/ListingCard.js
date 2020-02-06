@@ -24,7 +24,7 @@ const ListingCard = props => {
         </CardBody>
       </Card>
       </>
-      {props.user.isLandOwner === 1 && 
+      {(props.user.isLandOwner === 1 || props.user.isLandOwner === 'yes') && 
         <>
           <Link to={`/listing/${props.listing.id}/edit`}>
           <button>Edit</button>

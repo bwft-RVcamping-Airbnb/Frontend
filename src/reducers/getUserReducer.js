@@ -24,7 +24,7 @@ export const getUserReducer = (state=intialState, action) => {
                     username: action.payload.username,
                     id: action.payload.id,
                     isLandOwner: action.payload.isLandOwner,
-                    isLoggedIn: !state.isLoggedIn
+                    isLoggedIn: true
                 }
             case LOGIN_FAILURE: 
                 return{
