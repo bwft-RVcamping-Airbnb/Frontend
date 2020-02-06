@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import {  Link } from 'react-router-dom';
 import {
   Card,
@@ -7,6 +8,7 @@ import {
   CardText,
 } from "reactstrap";
 
+import {deleteListingAction} from '../../actions/deleteListingAction';
 
 const ListingCard = props => {
 
@@ -26,9 +28,9 @@ const ListingCard = props => {
         <button>Edit</button>
       </Link>
       
-      <button>Delete</button>
+      <button onClick={() => props.deleteListingAction(props.listing.id)}>Delete</button>
     </div>
   )
 };
 
-export default ListingCard;
+export default connect(null, {deleteListingAction})(ListingCard);

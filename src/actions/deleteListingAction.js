@@ -14,7 +14,7 @@ export const deleteListingAction = id => dispatch => {
                 payload: res.message
             })
             
-            dispatch(push('/dashboard'));
+            // dispatch(push('/dashboard'));
 
             console.log(res);
         })

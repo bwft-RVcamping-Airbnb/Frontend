@@ -34,17 +34,17 @@ const EditListing = props => {
             <div className="form-container">
 
             <form className="App" onSubmit={handleSubmit(onSubmit)}>
-            <div>
+            {/* <div>
               <label>Title: </label>
               <input type="text" name='title' ref={register({title: 'title'},{required: true})}/>
               {errors.title && errors.title.type === 'required' && (<p>This is required</p>)}
-            </div>
+            </div> */}
             <div>
               <label>Description: </label>
               <textarea rows="2" cols="30" name='description' defaultValue={'description'} ref={register({description: 'description'},{required: true})}/>
               {errors.description && <p>This is required</p>}
             </div>
-            <div>
+            {/* <div>
             <label>Log Size</label>
               <select name='size' ref={register({size: 'size'},{ required: true})} >
                 <option value="">Select...</option>
@@ -54,7 +54,7 @@ const EditListing = props => {
                 <option value="xlarge">XLarge 36ft to 43ft</option>
               </select>
               {errors.size && <p>This is required</p>}
-            </div>
+            </div> */}
             <div>
               <label>Price</label>
               <input type="number" name='price' ref={register({price: 'price'},{required: true})} />
@@ -70,7 +70,7 @@ const EditListing = props => {
               <input type="text" name='location' ref={register({location: 'location'},{ required: true})} />
               {errors.location && errors.location.type === 'required' && (<p>This is required</p>)}
             </div>
-            <div>
+            {/* <div>
             <label>State</label>
               <select name='state' ref={register({state: 'state'},{ required: true})} >
                 <option value="">Select...</option>
@@ -127,7 +127,7 @@ const EditListing = props => {
                 <option value="WY">Wyoming</option>
               </select>
               {errors.state && <p>This is required</p>}
-            </div>
+            </div> */}
             
             
               <input type='submit' />
