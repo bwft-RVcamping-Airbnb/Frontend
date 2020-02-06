@@ -13,8 +13,11 @@ const EditListing = props => {
     const onSubmit = (data) => {
         
         const body ={
-
-            location: data.location
+            description: data.description,
+            location: data.location,
+            price_per_day: data.price,
+            photo: data.photo_url || ''
+    
 
         }
         props.updateListingAction(id, body)
@@ -41,7 +44,7 @@ const EditListing = props => {
             </div> */}
             <div>
               <label>Description: </label>
-              <textarea rows="2" cols="30" name='description' defaultValue={'description'} ref={register({description: 'description'},{required: true})}/>
+              <textarea rows="2" cols="30" name='description' ref={register({description: 'description'},{required: true})}/>
               {errors.description && <p>This is required</p>}
             </div>
             {/* <div>

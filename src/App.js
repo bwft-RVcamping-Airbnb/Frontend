@@ -9,6 +9,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import EditListing from './components/Listings/EditListing';
 import Login from './components/Auth/Login';
 import ErrorMessage from './components/Error/Error';
+import ErrorLogin from './components/Error/ErrorLogin';
 import DeleteListing from './components/DeleteListing/DeleteListing';
 import SignUp from './components/Register/SignUp';
 
@@ -34,7 +35,8 @@ const App = () => {
             <PrivateRoute exact path = '/dashboard' component={Dashboard} />
             <PrivateRoute path='/listing/:id/edit' component={EditListing} />
             <PrivateRoute path='/listing/:id/delete' component={DeleteListing} />
-            <PrivateRoute path='/404' component={ErrorMessage} />
+            <PrivateRoute exact path='/404' component={ErrorMessage} />
+            <PrivateRoute path='/404/log-in' component={ErrorLogin} />
           </Switch>
         </>
       </div>

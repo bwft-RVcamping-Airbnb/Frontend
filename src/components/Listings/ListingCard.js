@@ -11,7 +11,6 @@ import {
 import DeleteListing from '../DeleteListing/DeleteListing'
 
 const ListingCard = props => {
-  console.log(props);
   return (
     <div>
       <>

@@ -14,6 +14,9 @@ import {getLoggedOut} from '../../actions/logout';
 import {fetchListings} from '../../actions/fetchListings';
 
 const Listings = props => {
+    const filtered = props.listingData.filter(listing => listing.owner_id === props.user.id );
+
+
     useEffect(() => {
         props.fetchListings();
     }, []);
@@ -22,6 +25,7 @@ const Listings = props => {
         props.push(route);
     }
 
+    console.log(filtered.map(list => list.location));
     return(
         <div>
 
@@ -29,7 +33,7 @@ const Listings = props => {
                 <Loader type="Rings" color="red" />
             }
           
-            {!props.isLoading &&
+            {!props.isLoading && props.user.isLandOwner === 0 &&
         
                 <Container>
                     <Row>
@@ -46,13 +50,39 @@ const Listings = props => {
                     </Row>
                 </Container>
             }
+
+            {filtered.length === 0 && props.user.isLandOwner === 1 &&
+
+                <h1>Please Add A Listing</h1>
+
+            }
+
+            {!props.isLoading && props.user.isLandOwner === 1 &&
+
+                <Container>
+                <Row>
+                {
+                    filtered.map(listing => (
+                    <div key={listing.id}>
+                        <div className="image">
+                            <img src={rvPic} alt="RV"/>
+                        </div>
+                        <ListingCard listing={listing} />
+                    </div>
+                    ))
+                }
+                </Row>
+                </Container>
+            
+            }
         </div>
     )
 }
 
 const mapStateToProps = state => ({
     listingData:  state.listingData.listingData,
-    isLoading: state.listingData.isLoading
+    isLoading: state.listingData.isLoading,
+    user: state.user
 });
 
 export default connect(mapStateToProps, {getLoggedOut, fetchListings, push})(Listings);

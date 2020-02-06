@@ -31,7 +31,7 @@ export const getUserLogIn = credentials => {
                 payload: {errors: err}
             });
 
-            dispatch(push('/404'));
+            dispatch(push('/404/log-in'));
             
             console.log(err);
         })

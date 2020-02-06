@@ -12,6 +12,8 @@ export const updateListingAction = (id, body) => dispatch => {
             type: UPDATE_LISTING_SUCCESS,
             payload: res.message
         })
+        
+        dispatch(push('/dashboard'));
         console.log(res);
     })
     .catch(err => {
