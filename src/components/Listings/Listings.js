@@ -39,7 +39,7 @@ const Listings = props => {
                                 </div>
                                 <div className="listing-content">
                                     <h2 className="listing-content-h2">{listing.location}</h2>
-                                    <h3 className="listing-content-h3">${listing.price_per_day}</h3> 
+                                    <p className="listing-content-h3">${listing.price_per_day}</p> 
                                 </div>
                             </Link>
                             
