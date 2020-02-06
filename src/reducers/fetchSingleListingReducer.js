@@ -1,4 +1,4 @@
-import {FETCHING_LISTING_DATA, FETCHING_LIST_DATA_SUCCESS, FETCHING_LIST_DATA_FAILURE} from '../actions';
+import {FETCHING_SINGLE_LISTING, FETCHING_SINGLE_LISTING_SUCCESS, FETCHING_SINGLE_LISTING_FAILURE} from '../actions/index';
 
 const initialState = {
         listing: {
@@ -14,29 +14,30 @@ const initialState = {
         errors: null
 }
 
-export const fetchListingCardReducer = (state =initialState, action) => {
+export const fetchSingleListingReducer = (state =initialState, action) => {
 
         switch(action.type){
-                case FETCHING_LISTING_DATA:
+                case FETCHING_SINGLE_LISTING:
                         return{
                                 ...state,
                                 isLoading: !state.isLoading
                         }
-                case FETCHING_LIST_DATA_SUCCESS:
+                case FETCHING_SINGLE_LISTING_SUCCESS:
                         return{
                                 ...state,
                                 listing:{
                                         
-                                        id: action.payload.id,
-                                        owner_id: action.payload.owner_id,
-                                        location: action.payload.location,
-                                        description: action.payload.decription,
-                                        price: action.payload.price_per_day,
-                                        photo: action.payload.photo
-                                }
+                                        id: action.payload.listing.id,
+                                        owner_id: action.payload.listing.owner_id,
+                                        location: action.payload.listing.location,
+                                        description: action.payload.listing.description,
+                                        price: action.payload.listing.price_per_day,
+                                        photo: action.payload.listing.photo
+                                },
+                                isLoading: !state.isLoading
                         }
                 
-                case FETCHING_LIST_DATA_FAILURE:
+                case FETCHING_SINGLE_LISTING_FAILURE:
                         return{
                                 ...state,
                                 errors: action.payload.message

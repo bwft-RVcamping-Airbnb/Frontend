@@ -20,13 +20,13 @@ const NavigationBar = props => {
           </>
         }
 
-        {(!props.user.isLandOwner === 0 || props.user.isLandOwner === 'yes') && 
+        {props.user.isLandOwner === 1  && 
                 <>
                     <Link to={`/listing/add`}>
                         Add Listing
                     </Link>
                 </>
-           }
+        }
 
         {!props.user.isLoggedIn && 
           <>

@@ -1,27 +1,38 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useForm } from 'react-hook-form'
 import Loader from 'react-loader-spinner';
 import { connect } from 'react-redux';
 
 import {updateListingAction } from '../../actions/updateListingAction';
-import {fetchListingCard} from '../../actions/fetchListingCard';
+import {fetchSingleListingAction} from '../../actions/fetchSingleListingAction';
 
 const EditListing = props => {
     const id = parseInt(props.computedMatch.params.id);
     const { register, handleSubmit, errors} = useForm();
 
+    
+    useEffect(() => {
+      props.fetchSingleListingAction(id);
+    
+    }, []);
+    
+   
+
     const onSubmit = (data) => {
         
         const body ={
-
-            location: data.location
+            description: data.description,
+            location: data.location,
+            price_per_day: data.price,
+            photo: data.photo_url || ''
+    
 
         }
         props.updateListingAction(id, body)
         
         console.log(data);
     }
-
+  console.log('Edit listing: ', id);
   return (
     <div className="sign-up-form-container">
       {props.isLoading &&
@@ -41,7 +52,7 @@ const EditListing = props => {
             </div> */}
             <div>
               <label>Description: </label>
-              <textarea rows="2" cols="30" name='description' defaultValue={'description'} ref={register({description: 'description'},{required: true})}/>
+              <textarea rows="2" cols="30" name='description' defaultValue={props.listing.description} ref={register({description: 'description'},{required: true})}/>
               {errors.description && <p>This is required</p>}
             </div>
             {/* <div>
@@ -57,17 +68,17 @@ const EditListing = props => {
             </div> */}
             <div>
               <label>Price</label>
-              <input type="number" name='price' ref={register({price: 'price'},{required: true})} />
+              <input type="number" name='price' defaultValue={props.listing.price} ref={register({price: 'price'},{required: true})} />
               {errors.price && <p>This is required</p>}
             </div>
             <div>
               <label>Photo: </label>
-              <input type='url' name='photo_url' ref={register({photo_url: 'photo_url' })} />
+              <input type='url' name='photo_url' defaultValue={props.listing.photo} ref={register({photo_url: 'photo_url' })} />
               {errors.photo_url && errors.photo_url.type === 'required' && (<p>This is required</p>)}
             </div>
             <div>
               <label>Location</label>
-              <input type="text" name='location' ref={register({location: 'location'},{ required: true})} />
+              <input type="text" name='location' defaultValue={props.listing.location} ref={register({location: 'location'},{ required: true})} />
               {errors.location && errors.location.type === 'required' && (<p>This is required</p>)}
             </div>
             {/* <div>
@@ -143,7 +154,8 @@ const EditListing = props => {
 
 const mapStateToProps = state => ({
     isLoading: state.updateListing.isLoading,
-    listings: state.listingData.listingData
+    listings: state.listingData.listingData,
+    listing: state.singleListing.listing
 });
 
-export default connect(mapStateToProps, {updateListingAction, fetchListingCard })(EditListing);
+export default connect(mapStateToProps, {updateListingAction, fetchSingleListingAction })(EditListing);

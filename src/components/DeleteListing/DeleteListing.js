@@ -4,7 +4,7 @@ import { Button } from 'reactstrap';
 import {deleteListingAction} from '../../actions/deleteListingAction';
 
 const DeleteListing = props => {
-    console.log(props)
+  
     return(
         <div className="delete-btn-container">
             <Button color='danger' onClick={() => props.deleteListingAction(props.id)}>Delete</Button>
