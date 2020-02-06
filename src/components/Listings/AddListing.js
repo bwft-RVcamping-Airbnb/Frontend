@@ -17,8 +17,10 @@ const AddListing = props => {
       price_per_day: data.price,
       photo: data.photo_url || ''
     }
+
+    props.addListingAction(body);
+    
     console.log(data);
-    addListingAction()
   }
   
   return (
@@ -26,6 +28,7 @@ const AddListing = props => {
       {props.isLoading &&
         <Loader type="Rings" color="red" />
       }
+
       {!props.isLoading && 
         <>
           <h2>Add Listing</h2>
