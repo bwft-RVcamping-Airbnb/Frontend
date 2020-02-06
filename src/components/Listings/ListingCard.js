@@ -31,7 +31,7 @@ const ListingCard = props => {
           <Button color="light">Edit</Button>
           </Link>
           <Link to={`/listing/delete/${props.listing.id}/delete`}>
-          <DeleteListing id={props.listing.id} />
+            <DeleteListing id={props.listing.id} />
           </Link>  
         </>
       }
