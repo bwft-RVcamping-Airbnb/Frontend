@@ -6,6 +6,7 @@ import {
   CardBody,
   CardTitle,
   CardText,
+  Button
 } from "reactstrap";
 
 import DeleteListing from '../DeleteListing/DeleteListing'
@@ -27,10 +28,10 @@ const ListingCard = props => {
       {(props.user.isLandOwner === 1 || props.user.isLandOwner === 'yes') && 
         <>
           <Link to={`/listing/${props.listing.id}/edit`}>
-          <button>Edit</button>
+          <Button color="light">Edit</Button>
           </Link>
           <Link to={`/listing/delete/${props.listing.id}/delete`}>
-          <DeleteListing id={props.listing.id} />
+            <DeleteListing id={props.listing.id} />
           </Link>  
         </>
       }
