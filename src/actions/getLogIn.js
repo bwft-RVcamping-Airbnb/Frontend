@@ -30,8 +30,9 @@ export const getUserLogIn = credentials => {
                 type: LOGIN_FAILURE, 
                 payload: {errors: err}
             });
+
+            dispatch(push('/login'));
             
-            dispatch(push('/'));
             console.log(err);
         })
     }

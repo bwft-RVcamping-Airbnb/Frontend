@@ -1,14 +1,8 @@
-import React, {useEffect} from 'react';
-import {connect} from 'react-redux';
-import rvPic from '../../img/rv_placeholder.jpg';
+import React from 'react';
 import {Card, CardBody, CardTitle, CardText} from "reactstrap";
-
-
-import {fetchListingCard} from '../../actions/fetchListingCard';
 
 const ListingCard = props => {
 
-  console.log(props);
   return (
     <div>
       <>
@@ -25,9 +19,4 @@ const ListingCard = props => {
   )
 };
 
-const mapStateToProps = state => ({
-    listing: state.listing.listing,
-    isLoading: state.listing.isLoading
-});
-
-export default connect(mapStateToProps, {fetchListingCard})(ListingCard);
+export default ListingCard;

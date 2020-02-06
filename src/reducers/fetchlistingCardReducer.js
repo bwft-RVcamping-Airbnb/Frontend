@@ -26,7 +26,7 @@ export const fetchListingCardReducer = (state =initialState, action) => {
                         return{
                                 ...state,
                                 listing:{
-                                        ...state.listing,
+                                        
                                         id: action.payload.id,
                                         owner_id: action.payload.owner_id,
                                         location: action.payload.location,
@@ -39,7 +39,7 @@ export const fetchListingCardReducer = (state =initialState, action) => {
                 case FETCHING_LIST_DATA_FAILURE:
                         return{
                                 ...state,
-                                errors: action.payload
+                                errors: action.payload.message
                         }
         
 

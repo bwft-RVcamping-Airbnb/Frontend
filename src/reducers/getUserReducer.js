@@ -27,7 +27,8 @@ export const getUserReducer = (state=intialState, action) => {
             case LOGIN_FAILURE: 
                 return{
                     ...state,
-                    errors: action.payload.error
+                    errors: action.payload.error,
+                    isLoading: !state.isLoading
                 }
 
             default: 

@@ -4,8 +4,11 @@ import { push } from 'connected-react-router';
 import {connect} from 'react-redux';
 import Loader from 'react-loader-spinner';
 import { Container, Row } from "reactstrap";
-import {Card,CardBody,CardTitle,CardText,} from "reactstrap";
+
+import ListingCard from './ListingCard';
+
 import rvPic from '../../img/rv_placeholder.jpg';
+import '../../css/listings.css';
 
 import {getLoggedOut} from '../../actions/logout';
 import {fetchListings} from '../../actions/fetchListings';
@@ -22,9 +25,6 @@ const Listings = props => {
 
     return(
         <div>
-            <button onClick={props.getLoggedOut}>
-                logout
-            </button>
 
             {props.isLoading &&
                 <Loader type="Rings" color="red" />
@@ -36,19 +36,12 @@ const Listings = props => {
                     <Row>
                     {
                         props.listingData.map(listing => (
-                        <Link to={`/listing/${listing.id}`}>
-                        <div key={listing.id} onClick={e => changeRoute(`/listing/${listing.id}`)}>
+                        <Link to={`/listing/${listing.id}`} key={listing.id}>
+                        <div  onClick={e => changeRoute(`/listing/${listing.id}`)}>
                             <div className="image">
                                 <img src={rvPic} alt="RV"/>
                             </div>
-                            <Card>
-                                <CardBody>
-                                <CardTitle>{listing.title}</CardTitle>
-                                <CardText>Location: {listing.location}</CardText>
-                                <CardText>Description: {listing.description}</CardText>
-                                <CardText>Price: ${listing.price_per_day} </CardText>
-                                </CardBody>
-                            </Card>
+                            <ListingCard listing={listing} />
                         </div>
                         </Link>
                         

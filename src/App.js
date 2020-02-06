@@ -22,10 +22,10 @@ const App = () => {
       <div className="App">
       <NavBar /> 
           <>
-          {!localStorage.getItem('token') &&  
+          {/* {!localStorage.getItem('token') &&  
               <Route exact path='/' component={Login} />   
-          }
-
+          } */}
+          <Route exact path='/' component={Login} />
           <Route exact path='/login' component={Login} />
           <Route path = '/register/rv' component={RegisterRVUser} />
           <Route path = '/register/land' component ={RegisterLandUser} />
@@ -34,8 +34,8 @@ const App = () => {
           <Switch>
             <PrivateRoute path='/user/:id/add' component={AddListing} />
             <PrivateRoute exact path = '/dashboard' component={Dashboard} />
-            <PrivateRoute exact path = '/listing/:id' component={ListingCard} />
-            <PrivateRoute exact path = '/listing' component={ListingCard} />
+            {/* <PrivateRoute exact path = '/listing/:id' component={ListingCard} /> */}
+            {/* <PrivateRoute exact path = '/listing' component={ListingCard} /> */}
           </Switch>
         </>
       </div>
