@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
-import NavBar from './components/Navigation/Navbar';
+import NavigationBar from './components/Navigation/Navbar';
 
 import { ThemeProvider } from '@material-ui/core/styles';
 
@@ -20,7 +20,7 @@ const App = () => {
   return (
     <ThemeProvider>
       <div className="App">
-      <NavBar /> 
+      <NavigationBar /> 
           <>
           {/* {!localStorage.getItem('token') &&  
               <Route exact path='/' component={Login} />   
