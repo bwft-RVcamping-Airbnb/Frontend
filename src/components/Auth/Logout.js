@@ -14,4 +14,4 @@ const LogOut = props => {
     )
 }
 
-export default connect(null, { getLoggedOut})(LogOut);
+export default connect(null, {getLoggedOut})(LogOut);

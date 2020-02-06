@@ -1,13 +1,14 @@
 import React, {useEffect} from 'react';
 import { push } from 'connected-react-router';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import Loader from 'react-loader-spinner';
 import { Container, Row } from "reactstrap";
 
 import ListingCard from './ListingCard';
 
 import rvPic from '../../img/rv_placeholder.jpg';
-import '../../css/listings.css';
+import './listings.css';
 
 
 import {getLoggedOut} from '../../actions/logout';
@@ -20,10 +21,6 @@ const Listings = props => {
         props.fetchListings();
     }, []);
 
-    const changeRoute = route => {
-        props.push(route);
-    }
-
     return(
         <div>
 
@@ -32,21 +29,39 @@ const Listings = props => {
             }
           
             {!props.isLoading && props.user.isLandOwner === 0 &&
-        
-                <Container>
-                    <Row>
+                <div className="listings-main-contanier">
                     {
                         props.listingData.map(listing => (
-                        <div key={listing.id}>
-                            <div className="image">
-                                <img src={rvPic} alt="RV"/>
-                            </div>
-                            <ListingCard listing={listing} />
+                        <div className="listing-container" key={listing.id}>
+                            <Link to={`/listing/${listing.id}/profile`}>
+                                <div className="image-container">
+                                    <img src={rvPic} alt="RV"/>
+                                </div>
+                                <div className="listing-content">
+                                    <p>{listing.location}</p>
+                                    <p>${listing.price_per_day}</p>
+                                </div>
+                            </Link>
+                            
+                            {/* <ListingCard listing={listing} /> */}
                         </div>
                         ))
                     }
-                    </Row>
-                </Container>
+                </div>
+                // <Container>
+                //     <Row>
+                //     {
+                //         props.listingData.map(listing => (
+                //         <div key={listing.id}>
+                //             <div className="image">
+                //                 <img src={rvPic} alt="RV"/>
+                //             </div>
+                //             <ListingCard listing={listing} />
+                //         </div>
+                //         ))
+                //     }
+                //     </Row>
+                // </Container>
             }
 
             {filtered.length === 0 && props.user.isLandOwner === 1 &&
