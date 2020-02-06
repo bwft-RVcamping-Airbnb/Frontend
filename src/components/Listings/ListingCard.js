@@ -8,10 +8,10 @@ import {
   CardText,
 } from "reactstrap";
 
-import {deleteListingAction} from '../../actions/deleteListingAction';
+import DeleteListing from '../DeleteListing/DeleteListing'
 
 const ListingCard = props => {
-
+  console.log(props);
   return (
     <div>
       <>
@@ -24,13 +24,22 @@ const ListingCard = props => {
         </CardBody>
       </Card>
       </>
-      <Link to={`/listing/${props.listing.id}/edit`}>
-        <button>Edit</button>
-      </Link>
-      
-      <button onClick={() => props.deleteListingAction(props.listing.id)}>Delete</button>
+      {props.user.isLandOwner && 
+        <>
+          <Link to={`/listing/${props.listing.id}/edit`}>
+          <button>Edit</button>
+          </Link>
+          <Link to={`/listing/delete/${props.listing.id}/delete`}>
+          <DeleteListing id={props.listing.id} />
+          </Link>  
+        </>
+      }
+       
+    
     </div>
   )
 };
-
-export default connect(null, {deleteListingAction})(ListingCard);
+const mapStateToProps = state => ({
+  user: state.user
+})
+export default connect(mapStateToProps, {})(ListingCard);

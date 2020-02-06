@@ -10,7 +10,7 @@ const ErrorMessage = props => {
         setTimeout(() => {
             props.push('/dashboard');
          }, 3000);
-    }, [])
+    })
 
     console.log(props);
     return(

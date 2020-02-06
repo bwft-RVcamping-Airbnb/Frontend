@@ -11,12 +11,13 @@ const Dashboard = props => {
     return(
         <div className="dashboard-container">
             <h1>Welcome {props.user.username}</h1>
-            <Link to={`/listing/add`}>
-                Add Listing
-            </Link>
-            <button onClick={props.getLoggedOut}>
-                logout
-            </button>
+            {props.user.isLandOwner && 
+                <>
+                    <Link to={`/listing/add`}>
+                        Add Listing
+                    </Link>
+                </>
+            }
             <Listings />  
         </div>
     );

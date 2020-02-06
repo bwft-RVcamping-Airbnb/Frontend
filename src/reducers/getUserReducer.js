@@ -5,7 +5,8 @@ const intialState = {
     id: '',
     username: '',
     isLandOwner: false,
-    errors: ''
+    errors: '',
+    isLoggedIn: false
 }
 
 export const getUserReducer = (state=intialState, action) => {
@@ -22,7 +23,8 @@ export const getUserReducer = (state=intialState, action) => {
                     isLoading: !state.isLoading,
                     username: action.payload.username,
                     id: action.payload.id,
-                    isLandOwner: action.payload.isLandOwner
+                    isLandOwner: action.payload.isLandOwner,
+                    isLoggedIn: !state.isLoggedIn
                 }
             case LOGIN_FAILURE: 
                 return{

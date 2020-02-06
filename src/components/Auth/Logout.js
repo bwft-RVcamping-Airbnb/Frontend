@@ -1,26 +1,18 @@
 import React from 'react';
 import { push } from 'connected-react-router';
 import { connect } from 'react-redux';
-import { Button } from 'reactstrap'; 
 
-const Logout = props => {
+import {getLoggedOut} from '../../actions/logout';
 
-    const clearToken = () => {
-        localStorage.removeItem('token');
-        props.push('/');
-    }
+const LogOut = props => {
 
     return(
-        <div>
-            <button onClick={clearToken}>
+        <>
+            <button onClick={props.getLoggedOut}>
                 Log Out
             </button>
-        </div>
+        </>
     )
 }
 
-const mapStateToProps = state => ({
-
-});
-
-export default connect(mapStateToProps, { push })(Logout);
+export default connect(null, { getLoggedOut})(LogOut);
