@@ -2,11 +2,12 @@ import React from "react";
 import Loader from 'react-loader-spinner';
 import { useForm } from 'react-hook-form'
 import { connect } from 'react-redux';
+import { Button } from 'reactstrap';
 
 import {getUserLogIn} from '../../actions/getLogIn';
 
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
-import Button from '@material-ui/core/Button';
+ 
 
 const Login = props => {
 
@@ -44,7 +45,7 @@ const Login = props => {
           {errors.password && errors.password.type === 'required' && (<p>Password is required</p>
           )}
            
-          <Button variant="contained" color="primary">
+          <Button color="primary">
             <input type='submit' />
           </Button>
 

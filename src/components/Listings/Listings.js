@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import { push } from 'connected-react-router';
 import {connect} from 'react-redux';
 import Loader from 'react-loader-spinner';
-import { Container, Row, Button } from "reactstrap";
+import { Container, Row } from "reactstrap";
 
 import ListingCard from './ListingCard';
 
