@@ -38,8 +38,8 @@ const Listings = props => {
                                     <img src={rvPic} alt="RV"/>
                                 </div>
                                 <div className="listing-content">
-                                    <p>{listing.location}</p>
-                                    <p>${listing.price_per_day}</p>
+                                    <h2 className="listing-content-h2">{listing.location}</h2>
+                                    <h3 className="listing-content-h3">${listing.price_per_day}</h3> 
                                 </div>
                             </Link>
                             

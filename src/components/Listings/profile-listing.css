@@ -1,0 +1,28 @@
+.profile-bio{
+    width: 80%;
+    margin: 30px auto;
+    padding: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-img-container{
+    width: 50%;
+    margin-bottom: 20px;
+    padding: 0;
+    border: 1px solid black;
+}
+
+.profile-img-container img {
+    width: 100%;
+}
+.profile-content{
+    width: 100%;
+    display: flex;
+}
+
+.listing-content-h3{
+    width: 100%;
+}
