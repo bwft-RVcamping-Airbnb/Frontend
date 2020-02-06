@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { useForm } from 'react-hook-form'
 import Loader from 'react-loader-spinner';
 import { connect } from 'react-redux';
@@ -7,7 +7,21 @@ import {updateListingAction } from '../../actions/updateListingAction';
 import {fetchListingCard} from '../../actions/fetchListingCard';
 
 const EditListing = props => {
+    const [listingData, setListingData] = useState({});
     const id = parseInt(props.computedMatch.params.id);
+
+    useEffect(() => {
+      filterListing();
+    }, []);
+
+    const filterListing = () => {
+
+      props.listings.filter(listing => listing.id === id).map(listing => {
+        setListingData({location: listing.location, description: listing.description, price: listing.price_per_day, photo: listing.photo });
+      });
+   
+    }
+    
     const { register, handleSubmit, errors} = useForm();
 
     const onSubmit = (data) => {
@@ -24,7 +38,7 @@ const EditListing = props => {
         
         console.log(data);
     }
-
+    console.log(listingData);
   return (
     <div className="sign-up-form-container">
       {props.isLoading &&
@@ -44,7 +58,7 @@ const EditListing = props => {
             </div> */}
             <div>
               <label>Description: </label>
-              <textarea rows="2" cols="30" name='description' ref={register({description: 'description'},{required: true})}/>
+              <textarea rows="2" cols="30" name='description' defaultValue={listingData.description} ref={register({description: 'description'},{required: true})}/>
               {errors.description && <p>This is required</p>}
             </div>
             {/* <div>
@@ -60,17 +74,17 @@ const EditListing = props => {
             </div> */}
             <div>
               <label>Price</label>
-              <input type="number" name='price' ref={register({price: 'price'},{required: true})} />
+              <input type="number" name='price' defaultValue={listingData.price} ref={register({price: 'price'},{required: true})} />
               {errors.price && <p>This is required</p>}
             </div>
             <div>
               <label>Photo: </label>
-              <input type='url' name='photo_url' ref={register({photo_url: 'photo_url' })} />
+              <input type='url' name='photo_url' defaultValue={listingData.photo} ref={register({photo_url: 'photo_url' })} />
               {errors.photo_url && errors.photo_url.type === 'required' && (<p>This is required</p>)}
             </div>
             <div>
               <label>Location</label>
-              <input type="text" name='location' ref={register({location: 'location'},{ required: true})} />
+              <input type="text" name='location' defaultValue={listingData.location} ref={register({location: 'location'},{ required: true})} />
               {errors.location && errors.location.type === 'required' && (<p>This is required</p>)}
             </div>
             {/* <div>
