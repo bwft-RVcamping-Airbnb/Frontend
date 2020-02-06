@@ -1,4 +1,5 @@
 import React from 'react';
+import {  Link } from 'react-router-dom';
 import {
   Card,
   CardBody,
@@ -21,7 +22,10 @@ const ListingCard = props => {
         </CardBody>
       </Card>
       </>
-      <button>Edit</button>
+      <Link to={`/listing/${props.listing.id}/edit`}>
+        <button>Edit</button>
+      </Link>
+      
       <button>Delete</button>
     </div>
   )

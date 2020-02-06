@@ -6,6 +6,7 @@ import {newLandUserReducer} from './newLandUserReducer';
 import {fetchListingsReducer} from './fetchListingData';
 import {fetchListingCardReducer} from './fetchlistingCardReducer';
 import {AddListingReducer} from './addListingReducer';
+import {updateListingReducer } from './updateListingReducer';
 
 const rootReducer = history =>  combineReducers({
     router: connectRouter(history),
@@ -14,7 +15,8 @@ const rootReducer = history =>  combineReducers({
     newLandUser: newLandUserReducer,
     listingData: fetchListingsReducer,
     listing: fetchListingCardReducer,
-    addListing: AddListingReducer
+    addListing: AddListingReducer,
+    updateListing: updateListingReducer
 });
 
 export default rootReducer;
