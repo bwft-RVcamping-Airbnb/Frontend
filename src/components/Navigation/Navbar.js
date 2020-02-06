@@ -8,7 +8,7 @@ import {connect} from 'react-redux';
 
 import {getLoggedOut} from '../../actions/logout';
 
-import LogOut from '../Auth/LogOut';
+import LogOut from '../Auth/Logout';
 
 const NavigationBar = props => {
   return(
