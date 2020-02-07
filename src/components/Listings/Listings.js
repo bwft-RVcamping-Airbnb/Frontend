@@ -3,11 +3,11 @@ import { push } from 'connected-react-router';
 import {connect} from 'react-redux';
 import Loader from 'react-loader-spinner';
 import { Container, Row } from "reactstrap";
-
+ 
 import ListingCard from './ListingCard';
 
 import rvPic from '../../img/rv_placeholder.jpg';
-import '../../css/listings.css';
+
 
 
 import {getLoggedOut} from '../../actions/logout';
@@ -38,9 +38,7 @@ const Listings = props => {
                     {
                         props.listingData.map(listing => (
                         <div key={listing.id}>
-                            <div className="image">
-                                <img src={rvPic} alt="RV"/>
-                            </div>
+                            
                             <ListingCard listing={listing} />
                         </div>
                         ))
@@ -62,9 +60,7 @@ const Listings = props => {
                 {
                     filtered.map(listing => (
                     <div key={listing.id}>
-                        <div className="image">
-                            <img src={rvPic} alt="RV"/>
-                        </div>
+                        
                         <ListingCard listing={listing} />
                     </div>
                     ))
