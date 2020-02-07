@@ -30,7 +30,7 @@ export const results = {
             "id": 4,
             "title": "dummy data 4 ",
             "location": "wherever",
-            "description": "Fugiat sint non magna mollit eu occaecat aliquip adipisicing incididunt. Amet id do nisi ut reprehenderit. Qui veniam proident sit pariatur aliquip consequat. Nisi elit in voluptate culpa esse est elit incididunt minim. Elit duis ullamco proident officia ipsum enim est esse.",
+            "description": "Fugiat sint non magna mollit eu occaecat aliquip adipisicing incididunt. Amet id do nisi ut reprehenderit. Qui veniam proident sit pariatur aliquip consequat. Nisi lit in voluptate culpa esse est elit incididunt minim. Elit duis ullamco proident officia ipsum enim est esse.",
             "price_per_day": 150.00,
             "img": "../img/rv_placeholder.jpg"
         },
