@@ -33,15 +33,19 @@ const Listings = props => {
                     {
                         props.listingData.map(listing => (
                         <div className="listing-container" key={listing.id}>
-                            <Link to={`/listing/${listing.id}/profile`}>
                                 <div className="image-container">
                                     <img src={rvPic} alt="RV"/>
                                 </div>
                                 <div className="listing-content">
                                     <h2 className="listing-content-h2">{listing.location}</h2>
-                                    <p className="listing-content-h3">${listing.price_per_day}</p> 
+                                    <h3 className="listing-content-h3">${listing.price_per_day}</h3> 
                                 </div>
-                            </Link>
+                                <div className="listing-btn">
+                                    <Link to={`/listing/${listing.id}/profile`}>
+                                        View Listing
+                                    </Link>
+                                </div>
+    
                             
                             {/* <ListingCard listing={listing} /> */}
                         </div>

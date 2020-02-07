@@ -10,35 +10,44 @@
 .listing-container{
     width: 30%;
     margin: 20px auto;
-    padding: 0;
-}
-
-.listing-container a{
-    width: 50%;
+    padding: 25px;
+    border: 1px solid #ccc;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    align-items: center
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 1px 10px #bbb;
+}
+
+.listing-container a{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid blue;
 }
 
 .image-container{
-    width: 200px;
-    height: 100px;
+    width: 100%;
+    height: 178px;
     margin: auto;
+    padding: 0;
 }
 
 .image-container img{
     width: 100%;
-    height: 100%;
     padding: 0;
+    border-radius: 5px;
 }
 
 .listing-content{
     width: 100%;
-    margin: 10px 0;
+    margin: 0;
     padding: 0px;
-    border: 1px solid red;
     display: flex;
+    flex-flow: row wrap;
     justify-content: center;
     align-items: center;
 }
@@ -46,13 +55,12 @@
 .listing-content-h2{
     width:100%;
     padding: 0;
-    font-size: .9rem;
+    font-size: 2rem;  
 }
 
 
 .listing-content-h3{
     width: 100%;
     padding: 0;
-    font-size: 1rem;
-    border: 1px solid green;
+    font-size: 1.4rem;
 }
