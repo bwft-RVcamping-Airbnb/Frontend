@@ -1,0 +1,120 @@
+.profile-container{
+    width: 60%;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px #bbb;
+}
+
+.profile-img-container{
+    width: 100%;
+    padding: 0;
+}
+
+.profile-img-container img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.profile-content{
+    width: 100%;
+    margin: 10px auto;
+    padding: 0;
+}
+
+.profile-location{
+    width: 100%;
+    margin: 20px 0;
+    padding: 10px 0;
+    font-size: 4rem;
+    color: #067BFD;
+}
+
+.profile-txt{
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 20px;
+    font-size: 1.5rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+.profile-price{
+    width: 100%;
+    padding: 20px 0;
+    font-size: 3rem;
+    color: #333;
+}
+
+
+.profile-total-container{
+    width: 100%;
+    margin-bottom: 30px;
+    padding: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-slider-container{
+    width: 100%;
+    padding: 20px;
+}
+
+.profile-slider{
+    width: 50%;
+    height: 15px;
+    appearance: none;
+    background: #ccc;
+    outline: none;
+    opacity: .7;
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    border-radius: 50px;
+}
+
+.profile-slider:hover{
+    opacity: 1;
+}
+
+.profile-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px; 
+    height: 30px;
+    background: #067BFD;
+    cursor: pointer;
+    border-radius: 100%;
+  }
+  
+  .slider::-moz-range-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px; 
+    height: 30px;
+    background: #067BFD;
+    cursor: pointer;
+    border-radius: 100%;
+  }
+
+.profile-days{
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 0;
+    font-size: 2rem;
+    color: #888;
+}
+
+.profile-total{
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 0;
+    font-size: 3rem;
+}

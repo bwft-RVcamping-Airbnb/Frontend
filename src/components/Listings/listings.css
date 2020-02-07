@@ -1,0 +1,108 @@
+
+.listings-main-contanier{
+    width: 60%;
+    margin: auto;
+    padding: 0;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.listing-container{
+    width: 30%;
+    margin: 20px auto;
+    padding: 25px;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 1px 10px #bbb;
+}
+
+.image-container{
+    width: 100%;
+    height: 178px;
+    margin: auto;
+    padding: 0;
+}
+
+.image-container img{
+    width: 100%;
+    padding: 0;
+    border-radius: 5px;
+}
+
+.listing-content{
+    width: 100%;
+    margin: 0;
+    padding: 0px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.listing-content-h2{
+    width:100%;
+    padding: 0;
+    font-size: 1.7rem;  
+}
+
+
+.listing-content-h3{
+    width: 100%;
+    padding: 0;
+    font-size: 1.4rem;
+}
+
+.listing-btn{
+    width: 100%;
+    margin: 10px 0;
+    padding:0;
+    display: flex;
+    justify-content: center;
+}
+
+.listing-view-btn{
+    width: 100%;
+    text-decoration: none;
+    margin:0;
+    padding: 5px 50px;
+    background-color: rgba(4, 147, 114, 1) ;
+    border-radius: 5px;
+    color: white;
+}
+
+.listing-edit-btn{
+    width: 100%;
+    text-decoration: none;
+    margin: 0;
+    padding: 5px 80px;
+    background-color: #067BFD ;
+    border-radius: 5px;
+    color: white;
+}
+
+.listing-delete-btn p{
+    width: 100%;
+    text-decoration: none;
+    margin: 0;
+    padding: 5px 80px;
+    background-color: #aaa;
+    border-radius: 5px;
+    color: white;
+}
+
+.listing-view-btn:hover, .listing-edit-btn:hover{
+    text-decoration: none;
+    color: white;
+    background-color: #333;
+}
+
+.listing-delete-btn p:hover{
+    background-color: rgba(214, 69, 65, 1);
+    color: white;
+    text-decoration: none;
+}
+

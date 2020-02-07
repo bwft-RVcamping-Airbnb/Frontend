@@ -6,9 +6,9 @@ import {deleteListingAction} from '../../actions/deleteListingAction';
 const DeleteListing = props => {
   
     return(
-        <div className="delete-btn-container">
-            <Button color='danger' onClick={() => props.deleteListingAction(props.id)}>Delete</Button>
-        </div>
+        <>
+            <p color='danger' onClick={() => props.deleteListingAction(props.id)}>Delete</p>
+        </>
     )
 }
 
