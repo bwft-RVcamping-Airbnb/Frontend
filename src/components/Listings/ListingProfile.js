@@ -20,23 +20,23 @@ const ListingProfile = props => {
     }
         console.log(days, total);
     return(
-        <div>
+        <div className="profile-container">
             <section className="profile-bio">
                 <div className="profile-img-container">
                     <img src={rvPic} alt="RV in snow"/>
                 </div>
                 <div className="profile-content">
-                    <h4 className="profile-location">{props.listing.location}</h4>
+                    <h1 className="profile-location">{props.listing.location}</h1>
                     <p className="profile-txt">
                         {props.listing.description}
                     </p>
-                    <p className="profile-price">${props.listing.price}</p>
+                    <h3 className="profile-price">${props.listing.price}</h3>
                 </div>
             </section>
-            <section>
+            <section className="profile-total">
                 <input type="range" min="0" max="14" value={days} id="dayRange" onChange={e => totalPrice(e)}/>
-                <p>Days (Max: 14): {days}</p>
-                <p>Total Price: ${total}</p>
+                <h4>Days (Max: 14): {days}</h4>
+                <h4>Total Price: ${total}</h4>
             </section>
         </div>
     );
