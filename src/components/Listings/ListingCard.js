@@ -40,6 +40,7 @@ const ListingCard = props => {
         <CardImg style={{width: "30vw"}} src={rvPic} alt="RVimage"/>
       </Card>
       </>
+      
       {(props.user.isLandOwner === 1 || props.user.isLandOwner === 'yes') && 
         <>
           <Link to={`/listing/${props.listing.id}/edit`}>
