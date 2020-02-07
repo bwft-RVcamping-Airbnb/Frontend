@@ -37,7 +37,7 @@ const ListingCard = props => {
           <CardText>Description: {props.listing.description}</CardText>
           <CardText>Price: ${props.listing.price_per_day} </CardText>
         </CardBody>
-        <CardImg bottom width='50%' src={rvPic} alt="RVimage"/>
+        <CardImg style={{width: "30vw"}} src={rvPic} alt="RVimage"/>
       </Card>
       </>
       {(props.user.isLandOwner === 1 || props.user.isLandOwner === 'yes') && 
