@@ -12,7 +12,7 @@ import {
 } from "reactstrap";
 
 import DeleteListing from '../DeleteListing/DeleteListing';
-import {axiosWithAuth} from '../../utils/axiosWithAuth';
+//import {axiosWithAuth} from '../../utils/axiosWithAuth';
 
 import {fetchSingleListingAction} from '../../actions/fetchSingleListingAction';
 
