@@ -8,7 +8,7 @@ const initialState = {
                 location: '',
                 description: '',
                 price: '',
-                photo: ''
+                photo: null
         },
         isLoading: false,
         errors: null

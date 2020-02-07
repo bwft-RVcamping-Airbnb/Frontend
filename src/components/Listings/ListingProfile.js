@@ -23,20 +23,28 @@ const ListingProfile = props => {
         <div className="profile-container">
             <section className="profile-bio">
                 <div className="profile-img-container">
-                    <img src={rvPic} alt="RV in snow"/>
+                    {props.listing.photo === null &&
+                        <img src={rvPic} alt="RV"/>
+                    }
+                    {props.listing.photo !== null &&
+                        <img src={props.listing.photo} alt="RV"/>
+                    }
                 </div>
                 <div className="profile-content">
                     <h1 className="profile-location">{props.listing.location}</h1>
                     <p className="profile-txt">
                         {props.listing.description}
                     </p>
-                    <h3 className="profile-price">${props.listing.price}</h3>
+                    <h3 className="profile-price">${props.listing.price}/day</h3>
                 </div>
             </section>
-            <section className="profile-total">
-                <input type="range" min="0" max="14" value={days} id="dayRange" onChange={e => totalPrice(e)}/>
-                <h4>Days (Max: 14): {days}</h4>
-                <h4>Total Price: ${total}</h4>
+            <section className="profile-total-container">
+                <div className="profile-slider-container">
+                    <input className="profile-slider" type="range" min="0" max="30" value={days} id="dayRange" onChange={e => totalPrice(e)}/>
+                </div>
+                
+                <h4 className="profile-days">Days: {days}</h4>
+                <h4 className="profile-total">Total Price: ${total}</h4>
             </section>
         </div>
     );

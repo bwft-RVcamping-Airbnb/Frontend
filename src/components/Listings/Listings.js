@@ -30,14 +30,19 @@ const Listings = props => {
             {props.isLoading &&
                 <Loader type="Rings" color="red" />
             }
-          
+            {/* RV USER LISTINGS */}
             {!props.isLoading && props.user.isLandOwner === 0 &&
                 <div className="listings-main-contanier">
                     {
                         props.listingData.map(listing => (
                         <div className="listing-container" key={listing.id}>
                                 <div className="image-container">
-                                    <img src={rvPic} alt="RV"/>
+                                    {listing.photo === null &&
+                                        <img src={rvPic} alt="RV"/>
+                                    }
+                                    {listing.photo !== null &&
+                                        <img src={listing.photo} alt="RV"/>
+                                    }
                                 </div>
                                 <div className="listing-content">
                                     <h2 className="listing-content-h2">{listing.location}</h2>
@@ -70,7 +75,7 @@ const Listings = props => {
                 //     </Row>
                 // </Container>
             }
-
+            {/* LAND OWNER LISTING */}
             {filtered.length === 0 && props.user.isLandOwner === 1 &&
 
                 <h1>Please Add A Listing</h1>
@@ -84,7 +89,12 @@ const Listings = props => {
                     filtered.map(listing => (
                     <div className="listing-container" key={listing.id}>
                             <div className="image-container">
-                                <img src={rvPic} alt="RV"/>
+                                {listing.photo === null &&
+                                    <img src={rvPic} alt="RV"/>
+                                }
+                                {listing.photo !== null &&
+                                    <img src={listing.photo} alt="RV"/>
+                                }
                             </div>
                             <div className="listing-content">
                                 <h2 className="listing-content-h2">{listing.location}</h2>

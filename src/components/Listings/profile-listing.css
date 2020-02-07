@@ -51,3 +51,70 @@
     font-size: 3rem;
     color: #333;
 }
+
+
+.profile-total-container{
+    width: 100%;
+    margin-bottom: 30px;
+    padding: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-slider-container{
+    width: 100%;
+    padding: 20px;
+}
+
+.profile-slider{
+    width: 50%;
+    height: 15px;
+    appearance: none;
+    background: #ccc;
+    outline: none;
+    opacity: .7;
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    border-radius: 50px;
+}
+
+.profile-slider:hover{
+    opacity: 1;
+}
+
+.profile-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px; 
+    height: 30px;
+    background: #067BFD;
+    cursor: pointer;
+    border-radius: 100%;
+  }
+  
+  .slider::-moz-range-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px; 
+    height: 30px;
+    background: #067BFD;
+    cursor: pointer;
+    border-radius: 100%;
+  }
+
+.profile-days{
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 0;
+    font-size: 2rem;
+    color: #888;
+}
+
+.profile-total{
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 0;
+    font-size: 3rem;
+}
