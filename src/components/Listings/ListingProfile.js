@@ -44,7 +44,7 @@ const ListingProfile = props => {
                 </div>
                 
                 <h4 className="profile-days">Days: {days}</h4>
-                <h4 className="profile-total">Total Price: ${total}</h4>
+                <h4 className="profile-total">Total Price: ${total.toFixed(2)}</h4>
             </section>
         </div>
     );
