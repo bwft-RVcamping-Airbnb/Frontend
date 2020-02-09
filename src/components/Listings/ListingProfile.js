@@ -23,7 +23,7 @@ const ListingProfile = props => {
         <div className="profile-container">
             <section className="profile-bio">
                 <div className="profile-img-container">
-                    {props.listing.photo === null &&
+                    {props.listing.photo === 'null' &&
                         <img src={rvPic} alt="RV"/>
                     }
                     {props.listing.photo !== null &&
